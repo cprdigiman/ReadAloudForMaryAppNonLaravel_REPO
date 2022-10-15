@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body id="page-student-store" class="bg-dots jsPageStudentStore">
+    <header>
+    </header>
+    <main>
+      <div class="">
+        <div class="bg-purple d-flex justify-flex-end">
+          <p class="cart-text">&nbsp;<!--Cart <i class="fas fa-shopping-cart"></i>--></p>
+          <div class="nav">
+            <p class="nav-item"><a href="student.html">Prizes</a></p>
+            <p class="nav-item"><a href="favorites.html" class="">My Favorites  <i style="font-size:15px;" class="fas fa-heart"></i></a></p>
+            <p class="nav-item cartlink"><a href="cart.html" class="activepage">My Cart  <i style="font-size:15px;" class="fas fa-shopping-cart"></i></a></p>
+          </div>
+          
+
+           
+        </div>
+        <div class="header-green bg-green d-flex justify-between">
+          <img class="siteLogo-inside2" src="img/logo.png">
+          <h2 class="inner-heading">Prize Store</h2>
+          <div class="store-profile">
+            <p class="studentname">Student Name</p>
+            <p class="totalpoints">Total Points</p>
+          </div>
+        </div>
+        
+        <div class="bg-dots bg-white">
+          <div class="inner-wrapper">
+            <div id="storewrapper" class="d-flex justify-around flex-row flex-wrap">
+            <div id="cartwrapper">
+              <div id="cartheader"><h2><span class="studentname"></span>'s Cart</h2></div>
+              <div id="cartbody">
+                
+
+              </div>
+              <div id="cartfooter">
+                <div class="moreshopping">
+                  <a class="shopbutton" href="student.html">
+                    Continue Shopping
+                  </a>
+                </div>
+                <div class="totalcost">
+                  <span class="points"></span>
+                  <div class="checkout">Submit</div>
+                  <div class="checkoutError">You do not have enough points for these items.</div>
+                </div>
+                <div class="finalnotice">
+                  <div class="message">
+                    <p>You are about to spend <span class="totalcartcost"></span> points on your order.  Your remaining <span class="pointsdiff"></span> points will be automatically donated to your teacher's prize box.</p><p>If you're not done shopping yet, click the "Continue Shopping" button above.</p><p> If you are done shopping, click the "Submit Order" button below to submit your final order. Once you submit your order, you will no longer be able to continue shopping.</p>
+                    <div class="checkout final"><strong>Submit Order</strong></div> 
+                  </div>
+                </div>
+                <div class="thankyou">
+                  <div class="message">
+                    <p>Your order has been received! Your prize(s) will be delivered to your teacher's classroom in the next few weeks.  Thank you for participating in our Read-a-Thon!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <style>
+      .shopbutton {
+        background: #663399;
+        color: white;
+        padding: 15px 30px;
+        position: relative;
+        top: -10px;
+      }
+      .moreshopping {
+        float: left;
+        margin-left: 30px;
+      }
+      .finalnotice, .thankyou {
+        margin-left: 30px;
+        margin-right: 30px;
+        text-align: center;
+        background: white;
+        color: #663399;
+        padding: 20px;
+      }
+      .notice {
+        text-align:center;
+      }
+      .store-profile .studentname {
+        text-align:center;
+      }
+      .totalpoints {
+        background: #ff3333;
+        padding: 5px 20px;
+        font-size: 16px;
+        font-family: Lato;
+        font-weight: 500;
+        display: inline-block;
+        text-align: center;
+        border-radius: 20px;
+        margin-top:20px;
+        cursor:pointer;
+        text-align: center;
+        left: 50%;
+        position: relative;
+        transform: translatex(-50%);
+      }
+      .logout {
+        position:absolute;
+        top:0;
+        right:0;
+        background-color:#FF3333;
+        color:white;
+        border:none;
+        padding:10px 30px;
+        border:2px solid #FF3333;
+      }
+      .logout:hover {
+        background:white;
+        color:#ff3333;
+      }
+      #pointsmodal,
+      #itemmodal {
+        position: fixed;
+        z-index: 300;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0,0,255,.5);
+        top:0;
+        left:0;
+      }
+      #pointsmodal input {
+        width:30%;
+        display:inline-block;
+        border:3px solid white;
+      }
+      #pointsmodal input.invalid {
+        border:3px solid #ff3333;
+      }
+      #pointsmodal .homepoints,
+      #pointsmodal #donationpoints,
+      #pointsmodal #schoolpoints {
+        display:none;
+      }
+      #pointsmodal {
+        display:none;
+      }
+      body.showpointsmodal #pointsmodal {
+        display:block;
+      }
+      .modalbody {
+        max-width: 50%;
+        margin: auto;
+        background: #99CC66;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        padding:50px;
+      }
+      .modalbody div {
+        margin-top:20px;
+        margin-bottom:20px;
+      }
+      .fa-times {
+        color:white;
+        position:absolute;
+        right:30px;
+        top:30px;
+        cursor:pointer;
+      }
+      .fa-times:hover {
+        color:#ff3333;
+      }
+      .savepoints {
+        margin-top:40px !important;
+        text-align: center;
+      }
+      .savepointsbutton {
+        background:#ff3333;
+        color:white;
+        padding:10px 15px;
+        border:none;
+      }
+      .donationpoints,
+      .homepoints,
+      .schoolpoints {
+        padding-left:15px;
+      }
+      .right {
+        text-align:right;
+      }
+      table {
+        width:100%;
+      }
+      td.right {
+        width: 50%;
+        text-align: right;
+        padding-right: 10%;
+      }
+      .inner-wrapper {
+        padding:0;
+      }
+      .errorMessage {
+        margin-left:20px;
+        visibility: hidden;
+        color:#ff3333;
+      }
+      .errorMessage.active {
+        visibility: visible;
+      }
+      .store-avatar {
+        width:250px; 
+      }
+      .store-img {
+        width:200px !important;
+      }
+      .store-item {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,20%);
+      }
+      .store-grid-item {
+        height:400px;
+        width:300px;
+        background:#99cc66;
+        position:relative;
+      }
+      .store-name {
+        background:#99cc66;
+        font-weight:bold;
+      }
+      .item-info {
+        position: absolute;
+        bottom: 20px;
+        /* left: 50%; */
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .store-name:first-child {
+        margin-bottom:10px;
+      }
+      .fas.fa-heart {
+        font-size:30px;
+        cursor:pointer;
+      }
+      .fas.fa-heart:hover {
+        color: rgba(255,200,200,1);;
+      }
+      .fas.fa-heart.active {
+        color:red;
+      }
+      .store-item-icon {
+        right:auto;
+        left: 50%;
+        transform: translatex(-50%);
+        bottom:-50px;
+      }
+      #student-store-modal {
+        display:none;
+      }
+      #itemmodal {
+        display:none;
+      }
+      body.showitemmodal #itemmodal {
+        display:block;
+      }
+       #itemmodal .modalbody {
+        width:70%;
+        max-width:70%;
+        background:white;
+        max-height:90%;
+      }
+      .modalimage {
+        padding-right:50px;
+        max-height:70vh;
+      }
+      #itemmodal td {
+        width:50%;
+        vertical-align:top;
+      }
+      h2.modalitemname {
+        color:#f68b1f;
+        margin-top:0;
+        margin-bottom:20px;
+        font-size:40px;
+        line-height:1.2em;
+      }
+      h3.modalitempoints {
+        color:#99cc66;
+        margin-top:0;
+        margin-bottom:30px;
+        font-size:35px;
+      }
+      p.modalitemdescription {
+        color:#2f3594;
+        font-weight:bold;
+        font-size:30px;
+        line-height:1.3em;
+      }
+      p.modalitemavail {
+        color:#f68b1f;
+        font-size:30px;
+        font-weight:bold;
+      }
+      #itemmodal .closemodal {
+        color:#99CC66;
+      }
+      #itemmodal .closemodal:hover {
+        color:#ff3333;
+      }
+      #storewrapper {
+        padding-left:10%;
+        padding-right:10%;
+        padding-top:5%;
+      }
+      .favorite-item {
+        height:150px;
+        width:100%;
+        max-width:1000px;
+        background:#99cc66;
+        margin-bottom:50px;
+      }
+      .fave-img {
+        height: 130px;
+        float: left;
+        margin: 10px;
+        display:inline-block;
+        cursor:pointer;
+      }
+      .fave-name {
+        font-family: 'Alice-regular';
+        color: white;
+        font-size: 30px;
+        margin-left: 40px;
+        text-align:left;
+      }
+      .fave-avail {
+        font-family: Lato;
+        color: white;
+        font-size: 24px;
+        margin-left: 50px;
+        margin-right:20px;
+        text-align:center;
+      }
+      td {
+        text-align:left;
+      }
+      td.fimg {
+        width:200px;
+        padding-top:30px;
+        padding-bottom:30px;
+        padding-right:30px;
+        padding-left:20px;
+      }
+      td.favail {
+        width:150px;
+      }
+      .nav {
+        position: relative;
+        right: 200px;
+      }
+      p.nav-item {
+        display: inline-block;
+        margin: 10px 20px auto 20px;
+        color: white;
+      }
+      p.nav-item a {
+        color:white;
+      }
+      p.nav-item a.activepage {
+        text-decoration: underline;
+      }
+      .fa-cart-plus {
+        color: white;
+        position: relative;
+        cursor: pointer;
+        top: 7px;
+      }
+      .fa-cart-plus:hover {
+        color:#663399;
+      }
+      .addtocart {
+        float:right;
+        position:relative;
+      }
+      .pill {
+        position: absolute;
+        right: -16px;
+        top:0;
+        background: #ff3333;
+        width: 24px;
+        border-radius: 50%;
+        display: block;
+        color: white;
+        text-align: center;
+        font-size: 12px;
+      }
+      .cart-link,
+      .addtocart {
+        display:none;
+      }
+
+      #cartwrapper {
+        background: white;
+        width: 100%;
+        max-width: 1000px;
+        border: 1px solid black;
+        position:relative;
+        margin-bottom:100px;
+      }
+      #cartheader h2 {
+        text-align: left;
+        padding: 50px 30px;
+        background: #663399;
+        color: white;
+        font-weight:bold;
+        font-size:24px;
+        margin-top:0;
+        margin-bottom:0;
+      }
+      #cartheader h2 span {
+        color:white;
+        font-weight: bold;
+        font-size:24px;
+      }
+      #cartbody {
+        min-height:400px;
+      }
+      #cartfooter {
+        background-color:#f4ec22;
+        min-height:160px;
+        padding-top:50px;
+        padding-bottom:50px;
+        text-align: right;
+      }
+
+      body.showcart .cart-link,
+      body.showcart .addtocart {
+        display:inline-block;
+      }
+
+      .cart-actions .fa-times {
+        position:relative;
+        color:#ff3333;
+        right:auto;
+        top:auto;
+        font-size:20px;
+      }
+      td.cart-actions {
+        width:30px;
+      }
+      td.cpoints {
+        width:150px;
+      }
+      td.cart-qty {
+        width:150px;
+      }
+      .cart-name,
+      .cart-qty,
+      .cart-points {
+        color:#2267ae;
+        font-size:20px;
+      }
+      span.qty {
+        padding-left:10px;
+        padding-right:10px;
+        border:1px solid #333;
+        display:inline-block;
+        margin-left:5px;
+        margin-right:5px;
+      }
+      .incrementcart,
+      .deincrementcart {
+        font-size:16px;
+        cursor:pointer;
+      }
+      .incrementcart:hover,
+      .deincrementcart:hover {
+        opacity:.7;
+      }
+      .incrementcart {
+        color:#339933;
+      }
+      .deincrementcart {
+        color:#ff3333;
+      }
+
+      #cartfooter .totalcost {
+        display: inline-block;
+        position: relative;
+        width:200px;
+        text-align:center;
+        margin-right:30px;
+      }
+      #cartfooter .points {
+        font-size: 24px;
+        font-weight: bold;
+        color: #663399;
+      }
+      #cartfooter .checkout {
+        margin-top: 20px;
+        text-align: center;
+        color: white;
+        background: #ff3333;
+        padding: 10px;
+        border:2px solid #ff3333;
+        cursor:pointer;
+      }
+      #cartfooter .checkout:hover {
+        background:white;
+        color:#ff3333;
+      }
+      .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+           -khtml-user-select: none; /* Konqueror HTML */
+             -moz-user-select: none; /* Old versions of Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Opera and Firefox */
+      }
+      .checkoutError {
+        display:none;
+        background:white;
+        border:2px solid #ff3333;
+        color:#ff3333;
+        margin-top:20px;
+      }
+      .insufficientPoints .checkoutError {
+        display:block !important;
+      }
+      .insufficientPoints .checkout {
+        display:none;
+      }
+      .finalnotice, .thankyou {
+        display:none;
+        margin-top:80px;
+        border:5px dashed #ff3333;
+      }
+      .thankyou {
+        border-color:#663399;
+        margin-top:0;
+      }
+      .finalnotice .message p {
+        color:#663399;
+      }
+      body.final-checkout .deincrementcart,
+      body.final-checkout .incrementcart,
+      body.final-checkout .removefromcart,
+      body.final-checkout #cartfooter .totalcost,
+      body.thank-you .deincrementcart,
+      body.thank-you .incrementcart,
+      body.thank-you .removefromcart,
+      body.thank-you #cartfooter .totalcost {
+        display:none;
+      }
+      body.final-checkout span.qty,
+      body.thank-you span.qty {
+        border-color:white;
+      }
+      body.final-checkout .finalnotice {
+        display:block;
+      }
+      body.thank-you .thankyou {
+        display:block;
+      }
+      body.thank-you .finalnotice {
+        display:none;
+      }
+      #cartfooter .checkout.final {
+        display:inline-block;
+        padding:15px 30px;
+      }
+      .totalcartcost,.pointsdiff {
+        font-weight:bold;
+        text-decoration:underline;
+      }
+      body.thank-you .moreshopping {
+        display:none;
+      }
+      body.thank-you .nav {
+        display:none;
+      }
+      p.outofstock {
+        margin-bottom:0;
+        margin-top:30px;
+        color:#ff3333;
+        font-size:14px;
+        font-weight:bold;
+        display:none;
+      }
+      .itemwrapper.outofstock {
+        border:3px solid #ff3333;
+      }
+      .itemwrapper.outofstock p.outofstock {
+        display:block;
+      }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+      function numbersOnly(e) {
+        return e.charCode >= 48 && e.charCode <= 57;
+      }
+      function htmlDecode(value) {
+          return $("<textarea/>").html(value).text();
+        }
+      var totalCartPoints=0;
+      var totalPoints=0;
+       $(document).ready(function(){
+        if(!sessionStorage.getItem('studentid')) {
+          //not logged in or a problem exists
+          sessionStorage.clear();
+          window.location.href='/index.html';
+          return false;
+        }
+
+        if(sessionStorage.getItem('schoolstatus')=='Pending' || sessionStorage.getItem('schoolstatus')=='Points') {
+          window.location.href='student.html';
+        }
+
+        //get student data
+        var data={
+          studentid:sessionStorage.getItem('studentid')
+        };
+        $.ajax({
+              type:'POST',
+              url:'/student',
+              data:data,
+              dataType:'json'
+        }).done(function(response) {
+              console.log(response);
+              sessionStorage.setItem('fname',response.student[0].fname);
+              sessionStorage.setItem('lname',response.student[0].lname);
+              sessionStorage.setItem('icon',response.student[0].icon);
+              sessionStorage.setItem('homepoints',response.student[0].home_points);
+              sessionStorage.setItem('schoolpoints',response.student[0].school_points);
+              sessionStorage.setItem('donationpoints',response.student[0].donation_points);
+              $('.studentname').text(response.student[0].fname+' '+response.student[0].lname+'.');
+              totalPoints=parseInt(response.student[0].home_points)+parseInt(response.student[0].school_points)+parseInt(response.student[0].donation_points);
+              $('.totalpoints').text(totalPoints.toString()+' Points');
+              if(totalCartPoints > totalPoints) {
+                $('body').addClass('insufficientPoints');
+              }
+              if(response.student[0].order_complete=="1") {
+                $('body').addClass('thank-you');
+              }
+              $.ajax({
+                type:'POST',
+                url:'/cartitems',
+                data:data,
+                dataType:'json'
+            }).done(function(r){
+              console.log(r);
+              $.each(r.cartitems,function(k,v){
+                var subtotal=parseInt(v.points) * parseInt(v.qty);
+                totalCartPoints+=subtotal;
+                var item='<div class="itemwrapper" data-itemqty="'+v.qty+'" data-itempoints="'+v.points+'" data-itemname="'+v.name+'" data-itemid="'+v.item_id+'" data-subtotal="'+subtotal+'" data-cartitemid="'+v.id+'"><table class="mqcartitem" data-points="'+v.points+'" data-cartitemid="'+v.id+'"><tr><td class="fimg"><img class="fave-img" src="/img/items/'+v.item_id+'.jpg?'+new Date().getTime()+'" data-itemid="'+v.id+'"></td><td><div class="cart-name">'+v.name+'<p class="outofstock">Sorry, we have run out of this item.<br>Please remove it from your cart.</p></div></td><td class="cart-qty"><i class="fa fa-minus-circle deincrementcart" data-itemid="'+v.id+'" data-qty="'+v.qty+'"></i><span class="qty noselect">'+v.qty+'</span><i class="fa fa-plus-circle incrementcart" data-itemid="'+v.id+'" data-qty="'+v.qty+'"></i></td><td class="cpoints"><div class="cart-points">'+subtotal+' Points</div></td><td class="cart-actions"><i class="fa fa-times removefromcart" data-itemid="'+v.id+'"></i></tr></table></div>';
+                  $('#cartbody').append(item);
+              });
+              $('.totalcost span.points').text(totalCartPoints+' Points'); 
+              if(totalCartPoints > totalPoints) {
+                    $('body').addClass('insufficientPoints');
+              }
+            });
+
+        });
+        
+        $('.checkout').click(function(){
+          if($(this).hasClass('final')) {
+            return false;
+          }
+          $('body').addClass('final-checkout');
+          $('.totalcartcost').text(totalCartPoints);
+
+          var pointsdiff=totalPoints - totalCartPoints;
+          $('.pointsdiff').text(pointsdiff);
+
+
+        });
+
+
+        $('.checkout.final').click(function(){
+          var orderitems=[];
+          $.each($('.itemwrapper'),function(k,v) {
+            var item={
+              schoolid:sessionStorage.getItem('xschoolid'),
+              schoolname:sessionStorage.getItem('xschoolname'),
+              classid:sessionStorage.getItem('xclassid'),
+              classname:sessionStorage.getItem('xclassname'),
+              studentid:sessionStorage.getItem('studentid'),
+              studentname:sessionStorage.getItem('fname') + ' '+ sessionStorage.getItem('lname') + '.',
+              itemid:$(v).data('itemid'),
+              itemname:$(v).data('itemname'),
+              itempoints:$(v).data('itempoints'),
+              qty:$(v).find('.incrementcart').data('qty'),
+              subtotal:$(v).data('subtotal')
+            }
+            orderitems.push(item);
+          });
+          var data={
+            orderitems:orderitems
+          }
+          $.ajax({
+            type:'post',
+            url:'/orders/add',
+            data:data,
+            dataType:'json'
+          }).done(function(r){
+            $('body').removeClass('finalnotice');
+            $('body').addClass('thank-you');
+            $('.totalpoints').text('0 Points');
+          }).fail(function(err) {
+            var oos=JSON.parse(err.responseText);
+            console.log(oos);
+
+            $.each(oos.outofstock,function(k,v) {
+              console.log('.mqcartitem[data-itemid="'+v.id+'"]');
+              $('.itemwrapper[data-itemid="'+v.id+'"]').addClass('outofstock');
+            });
+            $('body').removeClass('finalnotice');
+            $('body').removeClass('final-checkout');
+            $('body').addClass('showcart');
+            alert("We're sorry - one or more items you've ordered are no longer in stock.  Please remove these items from your cart and try again.");
+          });
+        });
+
+        $('body').on('click','.incrementcart',function(){
+          var that=this;
+          var qty=parseInt($(this).data('qty')) + 1;
+          var points=$(this).parents('.mqcartitem').data('points');
+          var subtotal=parseInt(points) * parseInt(qty);
+          var data={
+            cartitemid:$(this).parents('.mqcartitem').data('cartitemid'),
+            qty:qty
+          }
+          console.log(data);
+          $.ajax({
+            type:'post',
+            url:'/cartitems/setqty',
+            data:data,
+            dataType:'json'
+          }).done(function(r) {
+            console.log(r);
+            totalCartPoints+=points;
+            $(that).data('qty',qty);
+            $(that).parents('.mqcartitem').find('.deincrementcart').data('qty',qty);
+            $(that).parents('.mqcartitem').find('span.qty').text(qty);
+            $(that).parents('.mqcartitem').find('.cart-points').text(subtotal + ' Points');
+            $('#cartfooter span.points').text(totalCartPoints + ' Points');
+            if(totalCartPoints > totalPoints) {
+              $('body').addClass('insufficientPoints');
+            } else {
+              $('body').removeClass('insufficientPoints');
+            }
+          });
+        });
+
+        $('body').on('click','.deincrementcart',function(){
+          if($(this).data('qty')=="0") {
+            return false;
+          }
+          var that=this;
+          var qty=parseInt($(this).data('qty')) - 1;
+          var points=$(this).parents('.mqcartitem').data('points');
+          var subtotal=parseInt(points) * parseInt(qty);
+          var data={
+            cartitemid:$(this).parents('.mqcartitem').data('cartitemid'),
+            qty:qty
+          }
+          $.ajax({
+            type:'post',
+            url:'/cartitems/setqty',
+            data:data,
+            dataType:'json'
+          }).done(function(r) {
+            console.log(r);
+            totalCartPoints-=points;
+            $(that).data('qty',qty);
+            $(that).parents('.mqcartitem').find('.incrementcart').data('qty',qty);
+            $(that).parents('.mqcartitem').find('span.qty').text(qty);
+            $(that).parents('.mqcartitem').find('.cart-points').text(subtotal + ' Points');
+            $('#cartfooter span.points').text(totalCartPoints + ' Points');
+            if(totalCartPoints > totalPoints) {
+              $('body').addClass('insufficientPoints');
+            } else {
+              $('body').removeClass('insufficientPoints');
+            }
+          });
+        });
+
+        $('body').on('click','.removefromcart',function(){
+          var cartitem=$(this).parents('.itemwrapper');
+          var data={
+            cartitemid:$(cartitem).data('cartitemid'),
+            studentid:sessionStorage.getItem('studentid')
+          }
+          $.ajax({
+            type:'post',
+            url:'/cartitems/delete',
+            data:data,
+            dataType:'json'
+          }).done(function(){
+            $(cartitem).animate({
+              opacity:0
+            },400,function(){
+              $(cartitem).slideUp(400, function(){
+                $(this).remove();
+                var newtotal=0;
+                $.each($('.itemwrapper'),function(k,v) {
+                  newtotal=newtotal + parseInt($(v).data('subtotal'));
+                  console.log('newtotal:'+newtotal);
+                });
+                totalCartPoints=newtotal;
+                $('#cartfooter span.points').text(totalCartPoints + ' Points');
+                if(totalCartPoints > totalPoints) {
+                  $('body').addClass('insufficientPoints');
+                } else {
+                  $('body').removeClass('insufficientPoints');
+                }
+              });
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+  </html>

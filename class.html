@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body id="page-school-class" class="bg-dots loading">
+    <header>
+    </header>
+    <main>
+      <div class="container-wide">
+        <div class="bg-purple navbar d-flex justify-between">
+          <h2 class="school-h2"><span class="schoolname">Elementary Name</span> | <span class="classname">Teacher Name</span> | <span class="grade">3rd</span></h2>
+          <img class="siteLogo-inside" src="img/logo.png">
+        </div>
+        <div class="pointsblock bg-white">
+          <div class="half left">
+            <p>Total Reading = <span class="homepts">0</span> pts = <span class="homehrs">0</span> hours</p>
+          </div>
+          <div class="half right">
+            <p>Total Donations = <span class="donationpts">0</span> pts = $<span class="donationdollars">0</span></p>
+          </div>
+        </div>
+        <div class="bg-white border-gray">
+          <div class="inner-wrapper">
+            <div class="d-flex justify-around flex-row flex-wrap studentsgrid bg-green">
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+    </footer>
+
+    <div id="pointsmodal">
+      <div class="modalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2>Add Donation for <span class="studentname">student</span>:</h2>
+        <div class="pointswrapper">
+          <table>
+            <!---<tr><td class="right">Home Reading Points:</td><td><input type="number" id="homepoints"><div class="homepoints"></div></td></tr>-->
+            <tr><td class="right">Donor Name:</td><td><input type="text" id="donor"></td></tr>
+            <tr><td class="right">Donation Amount:</td><td><input type="number" id="amount"></td></tr>
+          </table>
+          <div class="savepoints"><button class="savepointsbutton">Add Donation</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="readinglogmodal">
+      <div class="modalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2>Reading Log for <span class="studentname">student</span>:</h2>
+        <p>Click the trash icon to select reading log entries to delete, then click the Delete button below this reading log to permanently delete selected reading entries.</p>
+        <div class="readinglogwrapper">
+          <table class="readinglog">
+
+          </table>
+        </div>
+        <div class="text-center">
+          <button class="deletelogsverified bg-red">Delete Selected Reading Logs</button>
+          <p class="warning">Clicking this will permanently delete the selected (red) reading log items. <br> <strong>Once deleted, reading log items CANNOT be undeleted.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="readingmodal">
+      <div class="modalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h3>Add Classroom Reading Time</h3>
+        <p>This interface allows you to add reading hours for every child in your classroom.  Uncheck any students who did not earn reading time, select the amount of time spent on classroom reading, and click Save to apply that time to all checked students.</p>
+
+        <div>
+          <label>Time Read</label>
+          <select id="readingtime">
+            <option value="" selected></option>
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="45">45 min</option>
+            <option value="60">60 min</option>
+          </select>
+        </div>
+        <div class="tables">
+          <table class="studentlist">
+
+          </table>
+          <table class="studentlist2">
+
+          </table>
+          <table class="studentlist3">
+
+          </table>
+        </div>
+        <div class="text-center">
+          <button class="savereadingtime bg-red">Save Reading Time</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="modal">
+      
+      <div class="modalbody">
+        <div id="modalwrap">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2><span class="modaltitle">Add New Student</span> <button class="deletestudent">Delete Student</button></h2>
+        <div>
+          <label>Student Name</label>
+          <input type="text" id="fname">
+        </div>
+        <div>
+          <label>Birth Month</label>
+          <select name="birthday" id="birthday">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select> 
+        </div>
+        <div>
+          <label>Select Avatar:</label>
+          <div class="selectavatar">
+            <img src="/img/student-icons/g1.png" data-val="g1">
+            <img src="/img/student-icons/g2.png" data-val="g2">
+          </div>
+        </div>
+        <!--<div>
+          <label>Select Password Image:</label>
+          <div class="selectpassicon">
+            <img src="/img/pass-icons/1.png" data-val="1">
+            <img src="/img/pass-icons/2.png" data-val="2">
+            <img src="/img/pass-icons/3.png" data-val="3">
+            <img src="/img/pass-icons/4.png" data-val="4">
+            <img src="/img/pass-icons/5.png" data-val="5">
+            <img src="/img/pass-icons/6.png" data-val="6">
+            <img src="/img/pass-icons/7.png" data-val="7">
+            <img src="/img/pass-icons/8.png" data-val="8">
+            <img src="/img/pass-icons/9.png" data-val="9">
+          </div>
+        </div>-->
+        <div class="text-center">
+          <button class="savestudent bg-red">Save Student</button>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <button class="addstudent">Add Student</button>
+    <button class="goback">Go Back</button>
+    <button class="logout">Log Out</button>
+    <button class="readingtime">Classroom Reading</button>
+    <style>
+      #readinglogmodal {
+        display: none;
+      }
+      body.showreadinglogmodal #readinglogmodal {
+        display: block;
+      }
+      table.readinglog {
+        max-height: 70vh;
+        overflow: scroll;
+      }
+      .readinglogwrapper {
+        max-height: 50vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+      .readinglog {
+        background: white;
+      }
+      tr {
+        border-bottom: 1px solid cyan;
+      }
+      .tables {
+        display: flex;
+
+      }
+      .fa-trash {
+        color: #ff3333;
+        cursor: pointer;
+      }
+
+      button.readingtime {
+        top: 58px;
+      }
+      td {
+        padding: 5px;
+      }
+      td:first-child {
+        width: 33px;
+      }
+      .pointsblock {
+        border:1px solid black;
+        padding:20px 50px;
+        border-bottom:0;
+      }
+      .pointsblock .half {
+        display:inline-block;
+        width:49%;
+        vertical-align:top;
+      }
+      p.warning {
+        background: white;
+        color: #f33;
+        margin-top: 30px;
+      }
+      .pointsblock p {
+        font-weight:600;
+        font-size: 22px;
+        margin-bottom: 0;
+      }
+      .deletestudent {
+        display: inline-block;
+        font-size: 16px;
+        float: right;
+        background: #ff3333;
+        color: white;
+        border: none;
+        position: relative;
+        top:14px;
+        font-family:"Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        padding: 10px 15px;
+        display:none;
+      }
+      .deletestudent.active {
+        display:inline-block;
+      }
+      .deletestudent.makesure {
+        background:white;
+        border:1px solid #ff3333;
+        color:#ff3333;
+      }
+      #pointsmodal input {
+        width:50%;
+      }
+      .savepoints {
+        margin-top:40px !important;
+        text-align: center;
+      }
+      .savepointsbutton {
+        background:#ff3333;
+        color:white;
+        padding:10px 15px;
+        border:none;
+      }
+      .donationpoints,
+      .homepoints,
+      .schoolpoints {
+        padding-left:15px;
+      }
+      .logout {
+        position:absolute;
+        top:0;
+        right:0;
+        background-color:#FF3333;
+        color:white;
+        border:none;
+        padding:10px 30px;
+        border:2px solid #FF3333;
+        background-color: rgb(0,51,153);
+        border-color: rgb(0,51,153);
+      }
+      .logout:hover {
+        background:white;
+        color:#ff3333;
+      }
+      #modalwrap {
+        max-height:80vh;
+        overflow:auto;
+        padding-right:20px;
+      }
+      .selectpassicon {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .selectpassicon img {
+        width:100px;
+        height:100px;
+        margin-left: 20px;
+        margin-right: 20px;
+        border:4px solid #99CC66;
+      }
+      .selectavatar {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .selectavatar img {
+        height:100px;
+        margin-left: 20px;
+        margin-right: 20px;
+        border:4px solid #99CC66;
+      }
+      .selectavatar img.selected,
+      .selectpassicon img.selected {
+        border:4px solid white;
+      }
+      .teacher-item {
+        overflow:hidden;
+        width:150px;
+        height:150px;
+      }
+      .teacher-img {
+        height:100px;
+        width:auto;
+      }
+      #modal,
+      #pointsmodal,
+      #readingmodal {
+        display:none;
+      }
+      body.showmodal #modal {
+        display:block;
+      }
+      body.showpointsmodal #pointsmodal {
+        display:block;
+      }
+      body.showreadingmodal #readingmodal {
+        display: block;
+      }
+      .saveclass:hover {
+        color:#ff3333;
+        background:white;
+      }
+      .fa-times {
+        color:white;
+        position:absolute;
+        right:30px;
+        top:30px;
+        cursor:pointer;
+      }
+      .fa-times:hover {
+        color:#ff3333;
+      }
+      .text-center {
+        text-align:center;
+      }
+      .bg-red {
+        background-color:#FF3333;
+        color:white;
+        border:none;
+        padding:10px 30px;
+      }
+      button.addstudent {
+        background: #99CC66;
+        color: white;
+        font-size: 20px;
+        border: none;
+        vertical-align: 6px;
+        margin-left: 40px;
+        padding:10px 30px;
+        border-radius:40px;
+      }
+      button.addstudent:hover {
+        background:white;
+        color:#99cc66;
+      }
+      #modal,
+      #pointsmodal,
+      #readingmodal,
+      #readinglogmodal {
+        position: fixed;
+        z-index: 300;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0,0,255,.5);
+      }
+      .modalbody {
+        max-width: 50%;
+        margin: auto;
+        background: #99CC66;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        padding:50px;
+      }
+      .modalbody div {
+        margin-top:20px;
+        margin-bottom:20px;
+      }
+      .teacher-grid-item {
+        cursor:pointer;
+      }
+      .points {
+        background: #ff3333;
+        color: white;
+        width: 150px;
+        border-radius: 20px;
+        text-align: center;
+        margin: auto;
+        padding:5px;
+
+      }
+      .teacher-name {
+        margin-bottom:10px;
+      }
+      #pointsmodal.PTA .homepoints,
+      #pointsmodal.PTA .donationpoints,
+      #pointsmodal.PTA .schoolpoints {
+        display:none;
+      }
+      #pointsmodal.teacher #homepoints,
+      #pointsmodal.teacher #donationpoints,
+      #pointsmodal.teacher #schoolpoints {
+        display:none;
+      }
+      body.nopoints #pointsmodal .homepoints,
+      body.nopoints #pointsmodal .donationpoints,
+      body.nopoints #pointsmodal .schoolpoints {
+        display:inline-block;
+      }
+      body.nopoints #pointsmodal #homepoints,
+      body.nopoints #pointsmodal #donationpoints,
+      body.nopoints #pointsmodal #schoolpoints {
+        display:none;
+      }
+
+      table {
+        width:100%;
+      }
+      td.right {
+        width:50%;
+        text-align:right;
+        padding-right:10%;
+      }
+      h2 {
+        margin-top:0;
+      }
+      #pointsmodal td {
+        padding-top:5px;
+        padding-bottom:5px;
+      }
+      .check {
+        height: 16px;
+        width: 16px;
+        color: white;
+        display: inline-block;
+        background: white;
+        vertical-align: -3px;
+        margin-left: 6px;
+      }
+      .check.checked {
+        background:#FF3333;
+      }
+      .fa-cog {
+        color:#cca;
+        vertical-align: 3px;
+        visibility:hidden;
+      }
+      .check.loading .fa-cog {
+        visibility:visible;
+      }
+      body:not(.role-pta) .check {
+        display:none;
+      }
+      body.nopoints .savepointsbutton {
+        display:none;
+      }
+      button.addstudent,
+      button.goback,
+      button.readingtime {
+        border-radius: 0;
+        background: rgb(0,51,153);
+        top: 0;
+        right: 0;
+        position: absolute;
+        font-size: 16px;
+        padding: 10px 30px;
+        color: white;
+        border: 1px solid rgb(0,51,153);
+      }
+      button.addstudent:hover,
+      button.goback:hover,
+      button.readingtime:hover {
+        border: 1px solid rgb(0,51,153);
+        color: rgb(0,51,153);
+        background: white;
+      }
+      button.readingtime {
+        top: 58px;
+        right: 0;
+      }
+      button.goback {
+        top: 116px;
+        right: 0;
+      }
+      button.logout {
+        top: 174px;
+        right: 0;
+      }
+      button.logout:hover {
+        color: rgb(0,51,153);
+      }
+      .school-h2 {
+        color: rgb(0,51,153) !important;
+      }
+      .points {
+        background: rgb(255,255,153);
+        color: rgb(0,51,153);
+      }
+      .teacher-img {
+        height: 150px;
+      }
+      .navbar h2 {
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .modalbody {
+        background: rgb(184,235,202);
+      }
+      .selectavatar img,
+      .selectpassicon img {
+        border: 4px solid rgb(184,235,202);
+      }
+      .selectavatar,
+      .selectpassicon {
+        justify-content: flex-start;
+      }
+      .closemodal {
+        color: rgb(0,51,153);
+      }
+      .bg-red {
+        background: ;
+      }
+      .modaltitle {
+        text-transform: none;
+      }
+      .modalbody {
+        padding: 20px 50px;
+      }
+      .modalbody label {
+        font-family: alice-regular;
+        font-size: 20px;
+        color: rgb(0,51,153);
+        margin-bottom: 5px;
+        display: block;
+      }
+      .modalbody div {
+        margin-bottom: 40px;
+      }
+      .error {
+        border: 2px solid red;
+      }
+      #readingmodal h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      #readingmodal .modalbody {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      #readingtime.error {
+        border: 3px solid #ff3333;
+      }
+      tr.verify {
+        background: #f33;
+      }
+      tr.verify .deletereading {
+        color: white;
+      }
+      .teacher-grid-item {
+        position: relative;
+      }
+      .passicon {
+        width: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+      var classpoints={
+        school_points:0,
+        home_points:0,
+        donation_points:0,
+        school_hours:0,
+        home_hours:0,
+        donation_dollars:0
+      };
+      function htmlDecode(value) {
+          return $("<textarea/>").html(value).text();
+        }
+      $(document).ready(function(){
+        if(!sessionStorage.getItem('schoolname') || !sessionStorage.getItem('role')) {
+          //not logged in or a problem exists
+          sessionStorage.clear();
+          window.location.href='/index.html';
+          return false;
+        }
+        if(sessionStorage.getItem('role')=='PTA') {
+          $('body').addClass('role-pta');
+        }
+        if(sessionStorage.getItem('schoolstatus')=='Pending' || sessionStorage.getItem('schoolstatus')=='Fulfillment' || sessionStorage.getItem('schoolstatus')=='Completed') {
+          $('body').addClass('nopoints');
+        }
+        $('body').removeClass('loading');
+        $('.schoolname').text(htmlDecode(sessionStorage.getItem('schoolname')));
+        $('.classname').text(sessionStorage.getItem('classname'));
+        switch(sessionStorage.getItem('grade')) {
+          case '0':
+            $('.grade').text('Kindergarten');
+          break;
+          case '1':
+            $('.grade').text('1st');
+          break;
+          case '2':
+            $('.grade').text('2nd');
+          break;
+
+          case '3':
+            $('.grade').text('3rd');
+          break;
+
+          case '4':
+            $('.grade').text('4th');
+          break;
+
+          case '5':
+            $('.grade').text('5th');
+          break;
+
+          case '6':
+            $('.grade').text('6th');
+          break;
+
+          case 'O':
+            $('.grade').text('Online');
+          break;
+
+
+        }
+        
+
+        var data={
+          class_id:sessionStorage.getItem('classid')
+        };
+        $.ajax({
+              type:'POST',
+                  url: "/students",
+                  data: data,
+                  dataType:'json'
+              }).done(function(response) {
+                var side='left';
+                $.each(response.students,function(k,v){
+                  var temppoints=parseInt(v.home_points);
+                  if(temppoints>150) temppoints=150;
+                  var totalpoints=temppoints + parseInt(v.school_points) + parseInt(v.donation_points);
+                  var studentname=v.fname+' '+v.lname+'.';
+                  var checked='';
+                  if(v.verified=="1") {
+                    checked=' checked';
+                  }
+                  var readinghours=(v.home_points / 10).toFixed(1);
+                  var pwicon=v.vid;
+                  if(pwicon=='') {
+                    pwicon='unknown';
+                  }
+                  var student='<div data-studentid="'+v.id+'" data-studentname="'+studentname+'" data-fname="'+v.fname+'" data-lname="'+v.lname+'" data-birthday="'+v.birthday+'" data-icon="'+v.icon+'" data-vid="'+v.vid+'" class="teacher-grid-item gutter-20"><div class="teacher-item"><div class="teacher-avatar border-50"><img class="teacher-img" src="img/student-icons/'+v.icon+'.png"></div></div><p class="teacher-name">'+v.fname+' '+v.lname+'.</p><div class="points" data-studentid="'+v.id+'" data-studentname="'+studentname+'" data-home="'+v.home_points+'" data-school="'+v.school_points+'" data-donation="'+v.donation_points+'">'+readinghours+' Reading Hours<br>'+totalpoints+' Prize Points<br><div class="check'+checked+'"><i class="fa fa-spin fa-cog"></i></div></div><div class="passicon"><img src="img/pass-icons/'+pwicon+'.png"></div></div>';
+                  $('.studentsgrid').append(student);
+                  var check='<tr><td><input type="checkbox" data-sid="'+v.id+'" class="checkstudent" checked></td><td>'+v.fname+' '+v.lname+'</td></tr>';
+                  
+                  if(side=='left') {
+                    $('.studentlist').append(check);
+                    side='middle';
+                  } else if(side=='middle') {
+                    $('.studentlist2').append(check);
+                    side='right';
+                  } else {
+                    $('.studentlist3').append(check);
+                    side='left';
+                  }
+                  
+                });
+              });
+
+        $.ajax({
+              type:'POST',
+                  url: "/classpoints",
+                  data: data,
+                  dataType:'json'
+              }).done(function(response) {
+                console.log(response);
+                classpoints.school_points=response.points.school_total;
+                classpoints.home_points=response.points.home_total;
+                classpoints.donation_points=response.points.donations_total;
+
+                classpoints.school_hours=Math.round(parseInt(response.points.school_total)/6);
+                classpoints.home_hours=Math.round(parseInt(response.points.home_total)/6);
+                classpoints.donation_dollars=parseInt(response.points.donations_total)/10;
+                console.log(classpoints);
+                var totalhours=classpoints.home_hours + classpoints.school_hours;
+                $('.homepts').text(classpoints.home_points);
+                $('.homehrs').text(totalhours);
+                $('.schoolpts').text(classpoints.school_points);
+                //$('.schoolhrs').text(classpoints.school_hours);
+                $('.donationpts').text(classpoints.donation_points);
+                $('.donationdollars').text(classpoints.donation_dollars);
+              });
+
+        $('.addstudent').click(function() {
+          $('.modaltitle').text('Add New Student');
+          $('body').addClass('showmodal');
+          $('.deletestudent').removeClass('active').text('Delete Student');
+        });
+        $('.closemodal').click(function(){
+          $('body').removeClass('showmodal showreadingmodal showreadinglogmodal');
+          $('body').removeClass('showpointsmodal');
+          $('.selected').removeClass('selected');
+          $('#fname').val('');
+          $('#lname').val('');
+          $('.deletestudent').removeClass('active').text('Delete Student');
+        });
+
+
+
+
+        $('.savereadingtime').click(function() {
+          console.log('click');
+          if($('#readingtime').val().trim()=='') {
+            console.log('error');
+            $('#readingtime').addClass('error');
+            return false;
+          }
+          var students=[];
+          $.each($('input[type="checkbox"]:checked'),function(k,v) {
+            var sid=$(v).data('sid');
+            students.push(sid);
+          });
+          var data={
+            students: students.join(','),
+            time: $('#readingtime').val()
+          }
+          $.ajax({
+            url:'/classreading',
+            data:data,
+            dataType:'json',
+            method:'post'
+          }).done(function(response) {
+            if(response.message=='success') {
+              window.location.reload();
+            }
+          });
+        });
+
+        $('button.readingtime').click(function() {
+          $('body').addClass('showreadingmodal');
+        });
+
+
+        $('#readingtime').change(function() {
+          $(this).removeClass('error');
+        });
+
+
+        
+
+
+        $('body').on('click','.teacher-item',function(){
+          //if(sessionStorage.getItem('role')=='teacher') {
+          //  return false;
+          //}
+          $('.readinglog').empty();
+          var sid=$(this).parents('.teacher-grid-item').data('studentid');
+          var fname=$(this).parents('.teacher-grid-item').data('fname');
+          var lname=$(this).parents('.teacher-grid-item').data('lname');
+          var name=fname+' '+lname;
+          $('.studentname').text(name);
+          console.log('sid',sid);
+
+          $.ajax({
+            url:'/readinglog',
+            data:{studentid: sid},
+            dataType:'json',
+            method:'post'
+          }).done(function(response) {
+            $.each(response.items,function(k,v) {
+              $('.readinglog').append('<tr><td>'+v.session_datetime+'</td><td>'+v.description+'</td><td>'+v.time+' min</td><td><i data-id="'+v.id+'" class="fas fa-trash deletereading"></i></td></tr>');
+            });
+            $('body').addClass('showreadinglogmodal');
+          });
+
+
+          $('body').on('click','.deletereading',function() {
+            console.log('click detected');
+            $(this).parents('tr').toggleClass('verify');
+          });
+
+          $('.deletelogsverified').click(function() {
+            
+              var todelete=[];
+              $.each($('tr.verify'),function(k,v) {
+                todelete.push($(v).find('.deletereading').data('id'));
+              });
+              console.log(todelete);
+              var data={
+                todelete:todelete.join(',')
+              };
+              console.log(data);
+              $.ajax({
+                url:'/deletereadingitems',
+                method:'post',
+                data:data,
+                dataType:'json'
+              }).done(function(response) {
+                if(response.message=='success') {
+                  window.location.reload();
+                }
+              });
+            
+          });
+
+
+
+          /*var studentid=$(this).parents('.teacher-grid-item').data('studentid');
+          var studentname=$(this).parents('.teacher-grid-item').data('studentname');
+          var fname=$(this).parents('.teacher-grid-item').data('fname');
+          var lname=$(this).parents('.teacher-grid-item').data('lname');
+          var birthday=$(this).parents('.teacher-grid-item').data('birthday');
+          var icon=$(this).parents('.teacher-grid-item').data('icon');
+          var passicon=$(this).parents('.teacher-grid-item').data('vid');
+          $('.modaltitle').text('Edit '+studentname);
+          $('#fname').val(fname +' '+ lname.substring(0,1));
+          $('#birthday option[value="'+birthday+'"]').prop('selected',true);
+          $('.selectavatar img[data-val="'+icon+'"]').addClass('selected');
+          $('.selectpassicon img[data-val="'+passicon+'"]').addClass('selected');
+          $('.savestudent').data('studentid',studentid);
+          $('.deletestudent').addClass('active');
+          $('.deletestudent').data('studentid',studentid);
+          $('body').addClass('showmodal');*/
+        });
+
+
+        $('body').on('click','.check',function () {
+          if($(this).hasClass('loading')) {
+            return false;
+          }
+          
+          var that=this;
+          var data={
+            studentid:$(this).parents('.points').data('studentid')
+          };
+          if($(this).hasClass('checked')) {
+            data.verified="0";
+          } else {
+            data.verified="1"
+          }
+          $(this).addClass('loading');
+          $.ajax({
+              type:'POST',
+              url:'/student/verify',
+              data:data,
+              dataType:'json'
+            }).done(function(response) {
+              if(data.verified=="1") {
+                $(that).addClass('checked');
+              } else {
+                $(that).removeClass('checked');
+              }
+              $(that).removeClass('loading');
+            });
+        });
+
+        $('.deletestudent').click(function(){
+          if($(this).hasClass('makesure')) {
+            var data={
+              studentid: $(this).data('studentid')
+            }
+            $.ajax({
+              type:'POST',
+              url:'/students/delete',
+              data:data,
+              dataType:'json'
+            }).done(function(response) {
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"]').detach();
+              $('.deletestudent').removeClass('makesure').removeClass('active').data('studentid',0);
+              $('body').removeClass('showmodal');
+              $('.selected').removeClass('selected');
+              $('#fname').val('');
+              $('#lname').val('');
+              $('#birthday option[value="1"]').prop('selected',true);
+              $('.deletestudent').removeClass('active').text('Delete Student');
+            });
+          } else {
+            $(this).addClass('makesure').text('Are you sure?');
+          }
+          
+        });
+
+
+
+        $('.goback').click(function() {
+          window.history.go(-1);
+        });
+
+    
+
+        $('body').on('click','.selectavatar img',function(){
+          $('.selectavatar img.selected').removeClass('selected');
+          $(this).addClass('selected');
+        });
+        $('body').on('click','.selectpassicon img',function(){
+          $('.selectpassicon img.selected').removeClass('selected');
+          $(this).addClass('selected');
+        });
+
+        $('.savepointsbutton').click(function(){
+          if($('#donor').val().trim() == '') {
+            $('#donor').val('Anonymous');
+          }
+          if($('#amount').val() == ''  || $('#amount').val() < 0) {
+            $('#amount').addClass('error');
+            return false;
+          }
+          var sid=$(this).data('studentid');
+          var data= {
+            studentid: sid,
+            amount: $('#amount').val(),
+            donor: $('#donor').val(),
+            class_id:sessionStorage.getItem('classid')
+          };
+
+          $.ajax({
+            type:'POST',
+            url:'/student/donation',
+            data:data,
+            dataType:'json'
+          }).done(function(response) {
+            console.log(response);
+            var total=parseInt(response.total_points);
+            $('.points[data-studentid="'+sid+'"]').data('donation',response.donation_points).text(total+' Points');
+            $('span.donationpts').text(response.class_donation_points);
+            console.log('response:',response.class_donation_points);
+            let bob=parseInt(response.class_donation_points) / 10;
+            console.log('dollars:',bob)
+            $('span.donationdollars').text(bob.toString());
+          });
+          $('body').removeClass('showpointsmodal');
+        });
+
+        $('.logout').click(function() {
+          sessionStorage.clear();
+          window.location.href='index.html';
+        });
+
+
+        $('body').on('click','.points',function(e){
+          if($(e.target).hasClass('check')) {
+            return false;
+          }
+          if(sessionStorage.getItem('role')=='teacher') {
+            return false;
+          }
+
+          $('.homepoints').text($(this).data('home'));
+          $('#homepoints').val($(this).data('home'));
+          $('.schoolpoints').text($(this).data('school'));
+          $('#schoolpoints').val($(this).data('school'));
+          $('.donationpoints').text($(this).data('donation'));
+          $('#donationpoints').val($(this).data('donation'));
+          $('#pointsmodal .studentname').text($(this).data('studentname'));
+          $('#pointsmodal').addClass(sessionStorage.getItem('role'));
+          $('.savepointsbutton').data('studentid',$(this).data('studentid'));
+          $('body').addClass('showpointsmodal');
+
+        });
+
+        $('.savestudent').click(function(){
+          var icon=$('.selectavatar img.selected').get(0);
+          var iconid=$(icon).data('val');
+          var passicon=$('.selectpassicon img.selected').get(0);
+          var passiconid=$(passicon).data('val');
+          var data={
+            name:$('#fname').val(),
+            birthday:$('#birthday').val(),
+            icon:iconid,
+            passicon:passiconid,
+            school_id:sessionStorage.getItem('schoolid'),
+            class_id:sessionStorage.getItem('classid')
+          }
+          var url='/students/add';
+          var mode='add';
+          if($(this).data('studentid') > 0) {
+            data.studentid=$(this).data('studentid');
+            url='/students/edit';
+            mode='edit';
+          }
+          $.ajax({
+            type:'POST', 
+            url:url,
+            data:data,
+            dataType:'json'
+          }).done(function(response) {
+            console.log(response);
+            if(mode=='add') {
+              var totalpoints=0;
+              var student='<div class="teacher-grid-item gutter-20" data-studentid="'+response.student_id+'" data-studentname="'+response.fname+' '+response.lname+'" data-fname="'+response.fname+'" data-lname="'+response.lname+'" data-icon="'+data.icon+'" data-vid="'+data.passicon+'"><div class="teacher-item"><div class="teacher-avatar border-50"><img class="teacher-img" src="img/student-icons/'+response.icon+'.png"></div></div><p class="teacher-name">'+response.fname+' '+response.lname+'.</p><div class="points" data-home="0" data-school="0" data-donation="0">'+totalpoints+' Points</div></div>';
+              $('.studentsgrid').append(student);
+            } else {
+              //edit mode
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"]').data('studentname',response.fname+' '+response.lname.substring(0,1));
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"]').data('fname',response.fname);
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"]').data('birthday',data.birthday);
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"]').data('lname',response.lname.substring(0, 1));
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"]').data('icon',data.icon);
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"]').data('vid',data.passicon);
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"] .teacher-img').attr('src','img/student-icons/'+data.icon+'.png');
+              $('.teacher-grid-item[data-studentid="'+data.studentid+'"] .teacher-name').text(response.fname+' '+response.lname.substring(0,1)+'.');
+            }
+            $('#fname').val('');
+            $('#lname').val('');
+            $('#birthday option[value="1"]').prop('selected',true);
+            $('.selected').removeClass('selected');
+            $('.savestudent').data('studentid',0);
+            $('body').removeClass('showmodal');
+          });
+        });
+
+      });
+    </script>
+  </body>
+</html>

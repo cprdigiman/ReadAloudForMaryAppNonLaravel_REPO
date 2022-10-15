@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      .leaderboard {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+      }
+      .leaderboard a {
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+      .leaderboard img {
+        max-width: 150px;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+      .bigblack {
+        font-size: 40px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body id="page-student" class="bg-dots">
+    <header>
+    </header>
+    <main>
+      <div class="container-wide">
+        <div class="bg-purple navbar d-flex justify-center">
+          <div class="wrapper chooseavatar">
+            <img class="avatar" src="img/student-icons/g1.png">
+            <p>Change Avatar</p>
+          </div>
+          <h2 class="school-h2">
+            <span class="studentname"></span>
+            <p class="studentid">ID: 4-MCGL-AUSL</p>
+          </h2>
+          <div class="leaderboard" style="position:absolute;left:0;top:0;">
+            <a href="schoolstats.html"><img src="img/school-leaderboard.jpg"></a>
+            <a href="#"><img src="img/class-leaderboard.jpg"></a>
+          </div>
+          <img class="siteLogo-inside" src="img/logo.png">
+        </div>
+        <div class="bg-green">
+          <div class="inner-wrapper">
+            <div class="d-flex justify-around flex-col flex-wrap classesgrid">
+              
+              <div class="column1 reading-tracker span-3">
+                <div class="tracker-text">
+                  <span class="larger">Reading prize points = <span class="readingpoints"></span></span><br>
+                  Read for 30 min earn 5 points<br>
+                  Goal of 15 hours = 150 points
+                </div>
+
+                <div class="read15">
+                  <img class="timer timer15" src="img/15min.jpg">
+                  <p>Set Timer &amp; Read<br>for 15 minutes</p>
+                </div>
+
+
+                <div class="read30">
+                  <img class="timer timer30" src="img/30min.jpg">
+                  <p>Set Timer &amp; Read<br>for 30 minutes</p>
+                </div>
+
+                <div class="read60">
+                  <img class="timer timer60" src="img/60min.jpg">
+                  <p>Set Timer &amp; Read<br>for 60 minutes</p>
+                </div>
+
+              </div>
+
+              <div class="column2 reading-log span-3">
+                <h3 class="logsession">My Reading Log</h3>
+                <div class="table-wrap"><table class="log-items">
+                  
+
+                </table></div>
+                <div class="challenge">
+                  Student Reading Challenge<br>
+                  Can you read 15 hours in 15 days?
+                </div>
+              </div>
+
+              <!--<div class="column3 span-3">
+                <div class="my-points">
+                  <p>My Total Prize Points</p>
+                  <p class="totalpoints">0</p>
+                </div>
+                <div class="prize-store">
+                  <a class="wrapper" href="/student-prizes.html">
+                    <img style="padding-bottom: 30px;" src="/img/toys.jpg">
+                    <p>Go To Prize Store</p>
+                  </a>
+                </div>
+                <div class="log-it logsession">
+                  <img class="" src="img/reading.jpg">
+                  <p>Log Your<br>Reading Session</p>
+                </div>
+              </div>
+
+              <div class="column4 span-3">
+                <div class="my-donations">
+                  <p>My Donations</p>
+                  <p>$<span class="donationdollars">0</span></p>
+                  <p>Donation Points = <span class="donationpoints">0</span></p>
+                  <a class="wrapper donationlink" href="#"><img src="img/donate.jpg">
+                  <p>Make a Donation</p>
+                  <p>$10 Donation = 100 points</p></a>
+                </div>
+
+                <div class="send-progress">
+                  <img src="img/comp.jpg">
+                  <p>Email Your<br>Reading Progress</p>
+                </div>
+              </div>-->
+              <div class="column5 span-6" style="width:50%; padding-left:60px; box-sizing:border-box;">
+                <div class="row">
+                  <a class="wrapper donationlink" href="#"><img src="img/donate.jpg" style="width:200px;"></a>
+                  <div class="new-donations">
+                    <img class="mydonations" src="img/my-donations2.png" style="display: block; width:250px;">
+                    <p style="text-align:center;"><span class="donationpoints bigblack">0</span></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <a class="wrapper" href="#"><img class="logsession" src="img/reading.jpg" style="width:200px;"></a>
+                  <div class="new-reading">
+                    <img src="img/my-reading-hours2.png" style="display: block; width:250px;">
+                    <p style="text-align:center;"><span class="newreadinghours bigblack">0</span></p>
+                  </div>
+                </div>
+                <div class="row prizes-row" style="display:none;">
+                  <a class="wrapper" href="#"><img src="img/toys.jpg" style="width:200px;"></a>
+                  <div class="new-prizes">
+                    <img src="img/my-prize-points2.png" style="display: block; width:250px;">
+                    <p style="text-align:center;"><span class="prizepoints bigblack">0</span></p>
+                  </div>
+                </div>
+                <div class="row competition-row" style="display:none;">
+                  <a class="wrapper" href="img/competition-info.jpg" target="_blank"><img src="img/class-competition.jpg" style="width:200px;"></a>
+                  <div class="new-prizes">
+                    <img src="img/my-prize-points2.png" style="display: block; width:250px;">
+                    <p style="text-align:center;"><span class="prizepoints bigblack">0</span></p>
+                  </div>
+                </div>
+                <p style="font-style: italic; padding-left:20px;padding-right:20px; font-weight:bold;text-align:center;max-width:200px;">Share your reading progress with family and friends!</p>
+                <div class="row" style="margin-top:50px;justify-content: flex-start;">
+                  <a class="wrapper" href="#"><img src="img/comp.jpg" style="width:200px; margin-right:50px"></a>
+                  <a class="wrapper" href="#"><img src="img/text-sms.jpg" style="width:200px;"></a>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+    </footer>
+
+
+    <div id="donationsmodal">
+      <div class="donationsmodalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2>My Donations:</h2>
+        <table id="mydonations">
+
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="modal">
+      <div class="chooseavatarbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2>Click on the avatar you want to use</h2>
+        <div id="avatarcentral">
+
+        </div>
+      </div>
+
+
+      <div class="sendemailbody">
+        <span class="fa fa-times fa-2x closemodal hidewhentimeron"></span>
+        <h2>Send Progress Email</h2>
+        <p>Use this form to create an email.  This website cannot send email on your behalf - your email will pop up in your default email program, ready to send.</p>
+        <textarea class="emailtext">Hello -
+
+        My school is having a Read-A-Thon, and I am earning prizes by both reading and getting donations for my school. Check out my reading log! If you can make a donation, my Read-A-Thon ID is </textarea>
+        <a href="mailto:?to=&subject=My%20Read-A-Thon%20Progress&body=">Click to Send Email</a>
+        <p class="notice">(Creates an email in your default email program)</p>
+      </div>
+
+
+      <div class="modaltimerbody">
+        <span class="fa fa-times fa-2x closemodal hidewhentimeron"></span>
+        <!--<h2>The Read-A-Thon has ended.</h2>-->
+        <h2>Read for <span class="timertime">0</span> Minutes</h2>
+        <p class="hidewhentimeron">Let us know what you're reading, and we'll automatically log it for you when the timer ends!</p>
+        <p class="timermessage">You are reading <strong><span class="currentlyreading"></span></strong> for <span class="timertime">0</span> minutes.  When the timer is done, we will log this reading session for you automatically.</p>
+        <div class="hidewhentimeron">
+          <label>What are you about to read?</label>
+          <input type="text" id="timerdescription"> 
+          <p class="align-right">Type in the title of the book</p>
+        </div>
+        <div class="text-center hidewhentimeron">
+          <button class="starttimer bg-red">Start Timer Now!</button>
+        </div>
+        <div class="text-center visualtimer">
+          <p class="timer">15:00</p>
+        </div>
+        <div class="showwhentimeron">
+          <div class="d-flex" style="justify-content: space-around">
+            <button class="btnResume">Resume</button> <button class="btnPause">Pause</button> <button class="btnCancel">Cancel</button> 
+          </div>
+        </div>
+      </div>
+      <div class="modalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <!--<h2>The Read-A-Thon has ended.</h2>-->
+        <h2>Log Reading Session</h2>
+        <div>
+          <label>What Day Did You Read?</label>
+          <input type="date" id="readdate"> 
+          <p class="align-right">Click the icon to open the calendar <span class="fa fa-arrow-up"></span></p>
+          <label>What time did you read?</label>
+          <input type="time" id="readtime">
+          <p class="align-right">Click the icon to open the time picker <span class="fa fa-arrow-up"></span></p>
+        </div>
+        <div>
+          <label>What did you read?</label>
+          <input type="text" id="readdescription"> 
+          <p class="align-right">Type in the title of the book, and which pages you read.</p>
+        </div>
+        <div>
+          <label>How long did you read?</label>
+          <div class="readopts">
+            <span class="readtimeopt" data-time="15">15 min</span>
+            <span class="readtimeopt" data-time="30">30 min</span>
+            <span class="readtimeopt" data-time="45">45 min</span>
+            <span class="readtimeopt" data-time="60">60 min</span>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <button class="savesession bg-red">Save Reading Session</button>
+        </div>
+
+      </div>
+    </div>
+    <audio id="ding" preload="auto" style="display:none;">
+      <source src="/audio/ding.mp3" 
+                type="audio/mpeg">
+    </audio>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <button class="logout">Log Out</button>
+    <button class="refresh">Refresh</button>
+
+    <style>
+    .donationsmodalbody h2 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .chooseavatar p {
+      line-height: 14px;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 0;
+      position: relative;
+      top: -20px;
+      font-family: 'Alice-Regular';
+      text-transform: uppercase;
+    }
+    .chooseavatar {
+      cursor: pointer;
+    }
+    img.avatar {
+      margin-bottom: 0;
+    }
+    a.wrapper {
+      display: block;
+    }
+    .btnResume {
+      display: none;
+    }
+    .logsession {
+      cursor: pointer;
+    }
+    .align-right {
+      text-align: right;
+      padding-right: 20px;
+    }
+    .modalbody label,
+    .modaltimerbody label {
+      font-family: alice-regular;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .readtimeopt {
+      cursor: pointer;
+      border: 5px solid black;
+      display: inline-block;
+      padding: 20px;
+    }
+    .readtimeopt.selected {
+      background: white;
+    }
+    .send-progress p {
+      color: black;
+      font-size: 20px;
+      font-family: alice-regular;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .send-progress img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0;
+      max-width: 220px;
+    }
+    .my-donations p {
+      color: black;
+      font-size: 20px;
+      font-family: alice-regular;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .my-donations>p:nth-child(2) {
+      font-size: 80px;
+      color: red;
+      line-height: 1em;
+    }
+    .my-donations p:nth-child(3) {
+      color: rgb(0,51,153);
+      margin-bottom: 30px;
+    }
+    .my-donations img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0;
+      max-width: 220px;
+    }
+    .my-donations {
+      margin-bottom: 50px;
+    }
+    .log-it img {
+      max-width: 220px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      margin-bottom: 0;
+    }
+    .timer {
+      cursor: pointer;
+    }
+    .log-it p {
+      color: black;
+      font-size: 20px;
+      font-family: alice-regular;
+      text-align: center;
+    }
+    .prize-store img {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      padding: 15px;
+      padding-bottom: 0 !important;
+      max-width: 220px;
+      margin-bottom: 0;
+    }
+    .prize-store p {
+      color: black;
+      font-size: 20px;
+      font-family: alice-regular;
+      text-align: center;
+      margin-bottom: 0;
+      padding-bottom: 10px;
+    }
+    .prize-store .wrapper {
+      border: 5px dashed rgb(255,255,153);
+      max-width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .prize-store {
+      margin-bottom: 30px;
+    }
+    .my-points {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .my-points p:first-child {
+      color: black;
+      font-family: alice-regular;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .my-points p:nth-child(2) {
+      color: red;
+      font-family: alice-regular;
+      font-size: 80px;
+      margin-bottom: 0;
+      line-height: 1em;
+    }
+    .challenge {
+      color: purple;
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    .table-wrap {
+      background: white;
+      padding: 10px;
+    }
+    tr {
+      border-bottom: 1px solid rgba(0,0,0,.2);
+    }
+    td:nth-child(1) {
+      width: 35%;
+      text-align: left;
+      padding-top: 10px;
+    }
+    td:nth-child(2) {
+      width: 45%;
+      text-align: left;
+      padding-top: 10px;
+    }
+    td:nth-child(3) {
+      width: 20%;
+      text-align: right;
+      padding-top: 10px;
+    }
+    table.log-items {
+      padding: 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .reading-log h3 {
+      font-size: 35px;
+      color: red;
+      margin-top: 0;
+      text-align: center;
+      background: white;
+      margin-bottom: 0;
+      padding-bottom: 10px;
+    }
+    .reading-timer {
+      max-width: 300px;
+      border: 3px solid rgb(0,51,153);
+      padding: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+    }
+    .reading-timer p:first-child {
+      color: black;
+      text-align: center;
+      font-size: 22px;
+      font-family: alice-regular;
+      margin-bottom: 10px;
+    }
+    .reading-timer p:nth-child(2) {
+      color: orange;
+      font-size: 80px;
+      font-family: alice-regular;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 0;
+      line-height: 1em;
+    }
+    .read15 img,
+    .read30 img,
+    .read60 img {
+      max-width: 220px;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .read15,.read30,.read60 {
+      margin-bottom: 30px;
+    }
+    .read15 p,
+    .read30 p,
+    .read60 p {
+      text-align: center;
+      color: rgba(0,51,153);
+      font-family: alice-regular;
+    }
+    .span-3 {
+      width: 25%;
+    }
+    .tracker-text {
+      color: rgb(0,51,153);
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .tracker-text .larger {
+      font-size: 24px;
+    }
+    .avatar {
+      width: 161px;
+      height: auto !important;
+      position: relative;
+      top: -10px;
+    }
+    .readinghours {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 30px;
+      color: rgb(255,255,153);
+      text-shadow: 0px 0px 2px rgb(0 51 153);
+      border: 10px dashed rgb(255,255,153);
+      padding: 20px;
+    }
+    .large {
+      text-align: center;
+      font-size: 80px;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .school-h2 .studentname {
+      font-size: 60px;
+      color: rgb(0,51,153);
+      text-align: center;
+    }
+    .school-h2 p {
+      color: black;
+      font-size: 30px;
+      font-family: alice-regular;
+      text-align: center;
+    }
+
+    .container-wide {
+      width: calc(100% - 300px);
+      
+    }
+    .schoolname {
+      font-size: 60px !important;
+      color: RGB(0,51,153);
+      text-transform: none;
+
+    }
+      button.yellow {
+          background: rgb(255,255,153);
+          color: RGB(0,51,153);
+          position: absolute;
+          left: 50px;
+          top: 50%;
+          transform: translatey(-50%);
+          border: none;
+          padding: 10px 20px;
+          border-radius: 20px;
+          font-family: "Montserrat-Regular";
+      }
+      button.yellow:hover {
+        background: white;
+      }
+      .navbar h2 {
+        padding-left: 0;
+        margin: 0;
+      }
+      .logout {
+        position:absolute;
+        top:0;
+        right:0;
+        background-color:RGB(0,51,153);
+        color:white;
+        border:none;
+        padding:10px 30px;
+        border:2px solid RGB(0,51,153);
+      }
+      .logout:hover {
+        background:white;
+        color:RGB(0,51,153);
+      }
+      #modal,
+      #donationsmodal {
+        display:none;
+      }
+      body.showmodal #modal {
+        display:block;
+      }
+      body.showdonationsmodal #donationsmodal {
+        display: block;
+      }
+      .saveclass:hover {
+        color:RGB(0,51,153);
+        background:white;
+      }
+      .fa-times {
+        color:white;
+        position:absolute;
+        right:30px;
+        top:30px;
+        cursor:pointer;
+      }
+      .fa-times:hover {
+        color:RGB(0,51,153);
+      }
+      .text-center {
+        text-align:center;
+      }
+      .bg-red {
+        background-color:RGB(0,51,153);
+        color:white;
+        border:none;
+        padding:10px 30px;
+      }
+      button.refresh {
+        position: absolute;
+        top: 58px;
+        right: 0;
+        background-color: RGB(0,51,153);
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        border: 2px solid RGB(0,51,153);
+      }
+      button.refresh:hover {
+        background:white;
+        color:RGB(0,51,153);
+      }
+      #modal,
+      #donationsmodal {
+        position: fixed;
+        z-index: 300;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0,0,255,.5);
+      }
+      .modalbody,
+      .modaltimerbody,
+      .chooseavatarbody,
+      .sendemailbody,
+      .donationsmodalbody {
+        max-width: 50%;
+        margin: auto;
+        background: RGB(184,235,202);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        padding:50px;
+      }
+
+
+
+
+      #avatarcentral {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .chooseavatarbody {
+        max-height: 70vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+      .newavatar {
+        max-height: 150px;
+        width: auto;
+      }
+      .newavatar img {
+        max-height: 150px;
+        width: auto;
+      }
+      body.showmodal .modaltimerbody,
+      body.showmodal .chooseavatarbody {
+        display: none;
+      }
+      .modalbody div,
+      .modaltimerbody div {
+        margin-top:20px;
+        margin-bottom:20px;
+      }
+
+      body.showtimermodal .modalbody,
+      body.showtimermodal .chooseavatarbody {
+        display: none;
+      }
+      body.showtimermodal #modal,
+      body.showavatarmodal #modal {
+        display: block;
+      }
+      body.showtimermodal .modaltimerbody {
+        display: block;
+      }
+      body.showavatarmodal .modalbody,
+      body.showavatarmodal .modaltimerbody {
+        display: none;
+      }
+      body.showavatarmodal .chooseavatarbody {
+        display: block;
+      } 
+
+      .teacher-grid-item {
+        cursor:pointer;
+      }
+      .inner-wrapper {
+        padding: 30px;
+      }
+      .readopts {
+        display: flex;
+        justify-content: space-between;
+      }
+      #readdate.error,
+      #readtime.error,
+      #readdescription.error,
+      .readopts.error,
+      #timerdescription.error {
+        border: 2px solid red;
+      }
+      .modaltimerbody .text-center {
+        margin-top: 100px;
+      }
+      .modaltimerbody .visualtimer {
+        display: none;
+      }
+      .modaltimerbody.timer-running .visualtimer,
+      .modaltimerbody.timer-running .showwhentimeron {
+        display: block;
+      }
+      .modaltimerbody.timer-running .hidewhentimeron {
+        display: none;
+      }
+      .modaltimerbody .timermessage {
+        display: none;
+      }
+      .modaltimerbody.timer-running .timermessage {
+        display: block;
+      }
+      p.timer {
+        color: orange;
+        font-size: 80px;
+        font-family: alice-regular;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 0;
+        line-height: 1em;
+      }
+      .showwhentimeron {
+        display: none;
+      }
+      .visualtimer {
+        margin-top: 20px !important;
+        margin-bottom: 100px !important;
+      }
+      .btnResume {
+        display: none;
+      }
+      .timer-paused .btnResume {
+        display: block;
+      }
+      .timer-paused .btnPause {
+        display: none;
+      }
+      .reading-timer {
+        visibility: hidden;
+      }
+      .newavatar {
+        cursor: pointer;
+        border: 5px solid rgb(184, 235, 202);
+      }
+      .newavatar.selected {
+        border:  5px solid white;
+      }
+      .sendemailbody {
+        display: none;
+      }
+      body.showemailmodal #modal,
+      body.showemailmodal .sendemailbody {
+        display: block;
+      }
+      body.showemailmodal .modalbody,
+      body.showemailmodal .modaltimerbody,
+      body.showemailmodal .chooseavatarbody {
+        display: none;
+      }
+      .sendemailbody h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+      .sendemailbody textarea {
+        height: 300px;
+      }
+      .sendemailbody a {
+        display: inline-block;
+        background: rgb(0,51,153);
+        padding: 10px 20px;
+        margin-top: 30px;
+        left: 50%;
+        position: relative;
+        transform: translatex(-50%);
+        color: white;
+      }
+      .sendemailbody p {
+        text-align: center;
+      }
+      .send-progress {
+        cursor: pointer;
+      }
+      #mydonations {
+        width: 100%;
+      }
+      .donationsmodalbody {
+        background-color: #F3E779;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .donationsmodalbody p {
+        margin-bottom: 10px;
+      }
+      .donationsmodalbody td:first-child {
+        width: 20%;
+        text-align: right;
+      }
+      .donationsmodalbody td:nth-child(2) {
+        width: 80%;
+        text-align: left;
+        padding-left: 50px;
+      }
+      .my-donations p {
+        cursor: pointer;
+      }
+      #donationsmodal .closemodal {
+        top: 15px !important;
+        right: 15px !important;
+        color: #f00;
+      }
+      #donationsmodal .closemodal:hover {
+        color: rgb(0,51,153);
+      }
+      .table-wrap {
+        max-height: 800px;
+        overflow-y: auto;
+      }
+      body.prize-store-0 .competition-row{
+        display: flex !important;
+      }
+      body.prize-store-1 .prizes-row {
+        display: block !important;
+      }
+    </style>
+    <script>
+
+      function dateAdd(date, interval, units) {
+        if(!(date instanceof Date))
+          return undefined;
+        var ret = new Date(date); //don't change original date
+        var checkRollover = function() { if(ret.getDate() != date.getDate()) ret.setDate(0);};
+        switch(String(units).toLowerCase()) {
+          case 'year'   :  ret.setFullYear(ret.getFullYear() + interval); checkRollover();  break;
+          case 'quarter':  ret.setMonth(ret.getMonth() + 3*interval); checkRollover();  break;
+          case 'month'  :  ret.setMonth(ret.getMonth() + interval); checkRollover();  break;
+          case 'week'   :  ret.setDate(ret.getDate() + 7*interval);  break;
+          case 'day'    :  ret.setDate(ret.getDate() + interval);  break;
+          case 'hour'   :  ret.setTime(ret.getTime() + interval*3600000);  break;
+          case 'minute' :  ret.setTime(ret.getTime() + interval*60000);  break;
+          case 'second' :  ret.setTime(ret.getTime() + interval*1000);  break;
+          default       :  ret = undefined;  break;
+        }
+        return ret;
+      }
+      function ding() {
+        var ding=$('#ding').get(0);
+        ding.pause();
+        ding.currentTime=0;
+        ding.play();
+      }
+
+      var studentid='';
+      var currenttimer=0;
+        var readingtimer;
+        var pausetime={
+          min: 0,
+          sec: 0
+        };
+        var log=[];
+        var emailbody='<p>Hello -\n \n<brMy school is having a Read-A-Thon, and I am earning prizes by both reading and getting donations for my school. Check out my reading log! If you can make a donation, my Read-A-Thon ID is '+studentid+'.\n\nMy Reading Log:';
+      $(document).ready(function(){
+        var prizestore=sessionStorage.getItem('prize_store');
+        $('body').addClass('prize-store-'+sessionStorage.getItem('prize_store'));
+
+        $('.mydonations').click(function() {
+          $('body').addClass('showdonationsmodal');
+        });
+
+        $.ajax({
+          type:'POST',
+          url: '/student/donations',
+          data: {studentid: sessionStorage.getItem('studentid')},
+          dataType:'json'
+        }).done(function(response) {
+          console.log(response);
+          $.each(response.items,function(k,v) {
+
+            $('#mydonations').append('<tr><td>$'+v.donation_amount+'</td><td>'+v.donor+'</td></tr>');
+          });
+        });
+
+        $.ajax({
+          type:'POST',
+          url: '/student/sessions',
+          data: {studentid: sessionStorage.getItem('studentid')},
+          dataType:'json'
+        }).done(function(response) {
+          console.log(response);
+          var i=1;
+          $.each(response.sessions,function(k,v) {
+            $('.log-items').append('<tr><td>'+v.datetime+'</td><td>'+v.description+'</td><td>'+v.time+' min</td></tr>');
+            log.push({date: '"'+v.datetime+'"',description: '"'+v.description+'"',time: '"'+v.time+' min"'});
+            emailbody+="\n"+v.datetime+'   '+v.description+'   '+v.time+' min';
+            i++;
+          });
+          for(x=i;x<20;x++) {
+            $('.log-items').append('<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+          }
+        });
+
+        for (i = 1; i < 45; i++) {
+          $('#avatarcentral').append('<div class="newavatar" data-avatar="'+i+'"><img src="/img/student-icons/'+i+'.png"></div>');
+        }
+
+        $('.donationlink').attr('href',sessionStorage.getItem('donation_link')).attr('target','_blank');
+        var dp=sessionStorage.getItem('donationpoints');
+        $('.donationpoints').text(dp);
+        var donationdollars=Math.round(dp/10);
+        $('.donationdollars').text(donationdollars);
+        var grade=sessionStorage.getItem('grade');
+        if(grade=='0') grade='K';
+        if(grade=='o') grade='O';
+        studentid=grade+'-'+sessionStorage.getItem('xclassname').substr(0,4)+'-'+sessionStorage.getItem('fname').substr(0,3)+sessionStorage.getItem('lname').substr(0,1);
+        $('.studentid').text(studentid);
+        emailbody='Hello -\n \nMy school is having a Read-A-Thon, and I am earning prizes by both reading and getting donations for my school. Check out my reading log! If you can make a donation, my Read-A-Thon ID is '+studentid+'.\n\nMy Reading Log:';
+        
+        
+        var readingpoints=parseInt(sessionStorage.getItem('homepoints'))+parseInt(sessionStorage.getItem('schoolpoints'));
+        var readinghours=readingpoints/10;
+        if (readingpoints > 150) readingpoints=150;
+        
+        $('.totalpoints').text(readingpoints+parseInt(sessionStorage.getItem('donationpoints')));
+        $('.readingpoints').text(readingpoints);
+        $('.newreadinghours').text(readinghours);
+        $('.avatar').attr('src','img/student-icons/'+sessionStorage.getItem('icon')+'.png')
+        $('.studentname').text(sessionStorage.getItem('studentname'));
+        
+        $('body').removeClass('loading');
+        $('.schoolname').text(sessionStorage.getItem('schoolname'));
+        var data={
+          school_id:sessionStorage.getItem('schoolid')
+        };
+        /*$.ajax({
+              type:'POST',
+                  url: "/classes",
+                  data: data,
+                  dataType:'json'
+              }).done(function(response) {
+                console.log(response);
+                $.each(response.classes,function(k,v){
+                  var myclass='<div class="teacher-grid-item gutter-20" data-classid="'+v.id+'" data-classname="'+v.name+'" data-grade="'+v.grade+'"><div class="teacher-item"><div class="teacher-avatar border-50"><img class="teacher-img" src="/img/grade-icons/'+v.grade+'.png"></div></div><p class="teacher-name">'+v.name+'<p></div>';
+                  $('.classesgrid').append(myclass);
+                });
+              });
+        */
+
+
+
+        $('.starttimer').click(function() {
+          if($('#timerdescription').val().trim() == '') {
+            $('#timerdescription').addClass('error');
+            return false;
+          }
+          $('.modaltimerbody').addClass('timer-running');
+          $('.currentlyreading').text($('#timerdescription').val());
+          var now=new Date();
+          var interval=$(this).data('time');
+          var target=dateAdd(now,interval,'minute');
+          console.log('target',target);
+          readingtimer=setInterval(function() {
+            var now=new Date();
+            var seconds=parseInt((target.getTime() - now.getTime()) / 1000);
+            var mins=parseInt(seconds/60);
+            mins=mins.toString();
+            seconds=seconds%60;
+            seconds=seconds.toString();
+            if(mins.length < 2) mins="0"+mins;
+            if(seconds.length < 2) seconds="0"+seconds;
+            /* Check for completion */
+            if(parseInt(seconds)<=0 && parseInt(mins)<=0) {
+              /* it's completion time */
+              ding();
+              clearInterval(readingtimer);
+
+
+              var data={
+                date: moment().format('YYYY-MM-DD'),
+                time: moment().format('HH:mm'),
+                desc: $('#timerdescription').val(),
+                length: currenttimer,
+                studentid: sessionStorage.getItem('studentid')
+              };
+              $.ajax({
+                url:'/student/savesession',
+                method:'POST',
+                data:data,
+                dataType:'json'
+              }).done(function(response) {
+                
+                var hp=parseFloat(sessionStorage.getItem('homepoints'));
+                if(currenttimer==15) {
+                  hp=hp+2.5;
+                }
+                if(currenttimer==30) {
+                  hp=hp+5;
+                }
+                if(currenttimer==45) {
+                  hp=hp+7.5;
+                }
+                if(currenttimer==60) {
+                  hp=hp+10;
+                }
+                sessionStorage.setItem('homepoints',hp);
+                currenttimer=0;
+                setTimeout(function() {
+                  window.location.reload();
+                },2000);
+              });
+
+
+
+
+            }
+            $('p.timer').text(mins+':'+seconds);
+          },100);
+
+        });
+
+
+        $('.send-progress').click(function() {
+          emailbody='Hello - %0A%0AMy school is having a Read-A-Thon, and I am earning prizes by both reading and getting donations for my school. Check out my reading log! If you can make a donation, my Read-A-Thon ID is '+studentid.toUpperCase()+'.\n\n%0A%0AMy Reading Log:';
+
+          $.each(log,function(k,v) {
+            emailbody+="%0A"+v.date+"%09%09"+v.description+"%09%09"+v.time;
+          });
+          $('.sendemailbody textarea').val(emailbody);
+          emailbody+="%0A%0AClick here to donate to my school: "+sessionStorage.getItem('donation_link');
+          window.location.href='mailto:?subject=My Read-A-Thon Progress&body='+emailbody;
+        });
+
+        $('.btnPause').click(function() {
+          $('.modaltimerbody').addClass('timer-paused');
+          clearInterval(readingtimer);
+          var remainingTime=$('p.timer','.modaltimerbody').text();
+          remainingTime=remainingTime.split(':');
+          var mins = parseInt(remainingTime[0]);
+          var secs = parseInt(remainingTime[1]);
+          pausetime.min=mins;
+          pausetime.sec=secs;
+
+        });
+
+        $('.timer15').click(function() {
+          currenttimer=15;
+          $('.timertime').text('15');
+          $('.starttimer').data('time','15');
+          $('body').addClass('showtimermodal');
+          $('p.timer').text('15:00');
+        });
+
+        $('.timer30').click(function() {
+          currenttimer=30;
+          $('.timertime').text('30');
+          $('.starttimer').data('time','30');
+          $('body').addClass('showtimermodal');
+          $('p.timer').text('30:00');
+        });
+
+        $('.timer60').click(function() {
+          currenttimer=30;
+          $('.timertime').text('60');
+          $('.starttimer').data('time','60');
+          $('body').addClass('showtimermodal');
+          $('p.timer').text('60:00');
+        });
+
+        $('.savesession').click(function() {
+          var date=$('#readdate').val();
+          var time=$('#readtime').val();
+          var desc=$('#readdescription').val().trim();
+          var length=$('.readtimeopt.selected').data('time');
+          var e=0;
+          console.log(date,time,desc,length);
+          if(date=='') {
+            $('#readdate').addClass('error');
+            e++;
+          }
+          if(time=='') {
+            $('#readtime').addClass('error');
+            e++;
+          }
+          if(desc=='') {
+            $('#readdescription').addClass('error');
+            e++;
+          }
+          if(length==undefined) {
+            $('.readopts').addClass('error');
+            e++;
+          }
+
+          if(e<1) {
+
+            var data={
+              date: date,
+              time: time,
+              desc: desc,
+              length: length,
+              studentid: sessionStorage.getItem('studentid')
+            };
+            $.ajax({
+              url:'/student/savesession',
+              method:'POST',
+              data:data,
+              dataType:'json'
+            }).done(function(response) {
+              var hp=parseFloat(sessionStorage.getItem('homepoints'));
+              if(length==15) {
+                hp=hp+2.5;
+              }
+              if(length==30) {
+                hp=hp+5;
+              }
+              if(length==45) {
+                hp=hp+7.5;
+              }
+              if(length==60) {
+                hp=hp+10;
+              }
+              sessionStorage.setItem('homepoints',hp);
+
+              window.location.reload();
+            });
+
+
+
+
+
+
+
+          }
+
+        });
+
+
+        $('.btnCancel').click(function() {
+          $('body').removeClass('showtimermodal');
+          $('body').removeClass('showmodal');
+          $('.modaltimerbody').removeClass('timer-running');
+          clearInterval(readingtimer);
+        }); 
+
+
+
+
+
+
+        $('.btnResume').click(function() {
+          $('.modaltimerbody').removeClass('timer-paused');
+          var now=new Date();
+          var interval=(pausetime.min * 60) + (pausetime.sec);
+          var target=dateAdd(now,interval,'second');
+          console.log('target',target);
+          readingtimer=setInterval(function() {
+            var now=new Date();
+            var seconds=parseInt((target.getTime() - now.getTime()) / 1000);
+            var mins=parseInt(seconds/60);
+            mins=mins.toString();
+            seconds=seconds%60;
+            seconds=seconds.toString();
+            if(mins.length < 2) mins="0"+mins;
+            if(seconds.length < 2) seconds="0"+seconds;
+            /* Check for completion */
+            if(parseInt(seconds)<=0 && parseInt(mins)<=0) {
+              /* it's completion time */
+              ding();
+              clearInterval(readingtimer);
+
+
+              var data={
+                date: moment().format('YYYY-MM-DD'),
+                time: moment().format('HH:mm'),
+                desc: $('#timerdescription').val(),
+                length: currenttimer,
+                studentid: sessionStorage.getItem('studentid')
+              };
+              $.ajax({
+                url:'/student/savesession',
+                method:'POST',
+                data:data,
+                dataType:'json'
+              }).done(function(response) {
+                
+                var hp=parseFloat(sessionStorage.getItem('homepoints'));
+                if(currenttimer==15) {
+                  hp=hp+2.5;
+                }
+                if(currenttimer==30) {
+                  hp=hp+5;
+                }
+                if(currenttimer==45) {
+                  hp=hp+7.5;
+                }
+                if(currenttimer==60) {
+                  hp=hp+10;
+                }
+                sessionStorage.setItem('homepoints',hp);
+                currenttimer=0;
+                setTimeout(function() {
+                  window.location.reload();
+                },2000);
+              });
+
+
+
+
+            }
+            $('p.timer').text(mins+':'+seconds);
+          },100);
+        });
+
+
+
+
+
+        $('.chooseavatar').click(function() {
+          $('body').addClass('showavatarmodal');
+        });
+
+
+
+        $('#readtime,#readdate,#readdescription').change(function() {
+          $(this).removeClass('error');
+        });
+        $('#readdescription').keyup(function() {
+          $(this).removeClass('error');
+        });
+
+        $('.refresh').click(function() {
+          window.location.reload();
+        });
+
+        $('.readtimeopt').click(function() {
+          $('.readopts.error').removeClass('error');
+          $('.readtimeopt.selected').removeClass('selected');
+          $(this).addClass('selected');
+        });
+
+        $('.logsession').click(function() {
+          $('body').addClass('showmodal');
+          var date=moment().format('YYYY-MM-DD');
+          $('#readdate').val(date);
+          var time=moment().format('HH:mm');
+          $('#readtime').val(time);
+        });
+
+        $('body').on('click','.newavatar',function() {
+          $(this).addClass('selected');
+          var icon=$(this).data('avatar');
+          var data={
+            icon:icon,
+            studentid:sessionStorage.getItem('studentid')
+          }
+          $.ajax({
+            url:'/student/avatar',
+            data: data,
+            dataType: 'json',
+            method: 'POST'
+          }).done(function(response) {
+            console.log(response);
+            if(response.message=='success') {
+              sessionStorage.setItem('icon',icon);
+              window.location.reload();
+            }
+          });
+        });
+
+
+        $('.my-donations p').click(function() {
+          $('body').addClass('showdonationsmodal');
+        });
+
+        $('.addclass').click(function() {
+          $('body').addClass('showmodal');
+        });
+        $('.closemodal').click(function(){
+          $('body').removeClass('showmodal showtimermodal showavatarmodal showemailmodal showdonationsmodal');
+        });
+        $('.logout').click(function() {
+          sessionStorage.clear();
+          window.location.href='index.html';
+        });
+        $('body').on('click','.teacher-grid-item',function(){
+            //save class info to storage
+            sessionStorage.setItem('classname',$(this).data('classname'));
+            sessionStorage.setItem('classid',$(this).data('classid'));
+            sessionStorage.setItem('grade',$(this).data('grade'));
+            //go to that class
+            window.location.href="class.html";
+        });
+        $('.saveclass').click(function(){
+          var data={
+            school_id:sessionStorage.getItem('schoolid'),
+            name:$('#newclassname').val(),
+            teacheremail:$('#teacheremail').val(),
+            teacherpass:$('#teacherpassword').val(),
+            grade:$('#newclassgrade').val()
+          }
+          $.ajax({
+            type:'POST',
+            url:'/classes/add',
+            data:data,
+            dataType:'json'
+          }).done(function(response) {
+            console.log(response);
+            //add new class to list
+            var myclass='<div class="teacher-grid-item gutter-20" data-classid="'+response.class_id+'" data-classname="'+response.name+'" data-grade="'+response.grade+'"><div class="teacher-item"><div class="teacher-avatar border-50"><img class="teacher-img" src="/img/grade-icons/'+response.grade+'.png"></div></div><p class="teacher-name">'+response.name+'<p></div>';
+            $('.classesgrid').append(myclass);
+            $('#newclassname').val('');
+            $('#teacheremail').val('');
+            $('#teacherpassword').val('');
+            $('#newclassgrade').val(0);
+            $('body').removeClass('showmodal');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

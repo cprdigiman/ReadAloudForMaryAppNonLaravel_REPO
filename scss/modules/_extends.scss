@@ -1,0 +1,74 @@
+// ==========================================================================
+// Placeholders
+// ==========================================================================
+
+// Nav Items
+
+%nav-item-horz {
+  @include mq(med) {
+    display: inline-block;
+    margin: 0 em(12px);
+  }
+}
+
+%nav-item-link {
+  font-weight: $font-weight--light;
+  text-align: center;
+  font-size: em(18px);
+  display: block;
+  padding: em(8px, 18px);
+  border-bottom: 1px solid transparent;
+  @include mq(sm) {
+    border-bottom-color: palette(grey, xx-light);
+    padding-top: em(14px, 18px);
+    padding-bottom: em(14px, 18px);
+  }
+}
+
+%nav-item-on {
+  color: palette(black);
+}
+
+// Headlines
+
+%hdln-prim {
+  color: palette($blue-dark, x-dark);
+  font-weight: $font-weight--light;
+  font-size: em(42px);
+  line-height: (46px/42px);
+  margin-top: 0;
+}
+%hdln-sec {
+  color: palette($blue-dark, light);
+  letter-spacing: $letter-space;
+  font-weight: $font-weight--thin;
+  font-size: em(24px);
+  font-family: $font-family--secondary;
+}
+
+// Buttons
+
+%btn {
+  padding: 15px 30px;
+  border: 0;
+  border-radius : $br--default;
+  color: $white;
+  text-transform: uppercase;
+  font-size : em(14px);
+  font-weight: $font-weight--medium;
+  transition: opacity $trns-duration;
+  display: block;
+  &:hover {
+    opacity: .75;
+  }
+  &:active {
+    opacity: initial;
+  }
+}
+
+// Icons
+
+%icn--ui {
+	line-height: 0;
+	cursor: pointer;
+}

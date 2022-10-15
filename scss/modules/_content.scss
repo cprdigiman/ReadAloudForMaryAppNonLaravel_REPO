@@ -1,0 +1,209 @@
+// ==========================================================================
+// Content
+// ==========================================================================
+
+/*--- Headings ---*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $blue-dark;
+  font-family: $A-Reg;
+  font-size: em(50px);
+  text-transform: uppercase;
+}
+
+/*--- Page Headings ---*/
+#page-student-password {
+  .inner-wrapper h3 {
+    font-family: $M-Reg;
+  }
+}
+#page-student-favorites,
+#page-student-store {
+  .bg-white p {
+    font-family: $M-Bold;
+  }
+}
+/*--- Cart Info ---*/
+.cart-text {
+  margin-bottom: 0;
+  padding: 10px;
+  color: white;
+  padding-left: em(25px);
+  font-family: $ML-Reg;
+  &:hover {
+    cursor: pointer;
+  }
+}
+#page-student-checkout {
+  .yellow-grid .fav-name {
+    font-family: $M-Bold;
+  }
+}
+/*--- Text Aligns ---*/
+.text-center {
+  text-align: center;
+}
+
+/*--- Margins ---*/
+.m-10 {
+  margin: 10px;
+}
+/*--- Widths ---*/
+.w-25 {
+  width: 25%;
+}
+.w-10 {
+  width: 10%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-100 {
+  width: 100%;
+}
+/*--- BG Colors ---*/
+.bg-green {
+  background-color: $green-light;
+}
+.bg-white {
+  background-color: white;
+}
+.bg-yellow {
+  background-color: $yellow;
+}
+/*---- Borders ---*/
+.border-50 {
+  border-radius: 50%;
+}
+.border-gray {
+  border: solid 1px $gray;
+}
+/*--- Center Contet ---*/
+.content-center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+}
+#page-login {
+  h2 {
+    @media (max-width: $bp-xlarge) {
+      font-size: em(30px);
+    }
+    @media (max-width: $bp-large) {
+      font-size: em(25px);
+    }
+    @media (max-width: $bp-medium) {
+      font-size: em(20px);
+    }
+  }
+  .container,
+  .content-center {
+    @media (max-width: $bp-xlarge) {
+      width: 90%;
+    }
+  }
+}
+
+/*--- Flex Items ---*/
+.d-flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.flex-no-wrap {
+  flex-wrap: nowrap;
+}
+.justify-flex-start {
+  justify-content: flex-start;
+}
+.justify-flex-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+.align-item-center {
+  align-items: center;
+}
+.fItem1 {
+  order: 1;
+  width: 15%;
+  margin-left: 10%;
+}
+.fItem2 {
+  order: 2;
+  width: 35%;
+}
+.fItem3 {
+  order: 3;
+  width: 30%;
+  margin-right: 10%;
+}
+/*--- Student Info inside the Store ---*/
+.store-profile {
+  color: white;
+  font-size: em(20px);
+  font-family: $A-Reg;
+  text-transform: none;
+  margin-top: em(20px);
+  margin-bottom: em(20px);
+  margin-right: em(100px);
+  p {
+    margin-bottom: 0;
+  }
+  @media (max-width: $bp-xlarge) {
+    font-size: em(15px);
+    margin-top: em(10px);
+    margin-bottom: em(10px);
+    margin-right: em(20px);
+  }
+}
+.container-content {
+  p {
+    color: $purple;
+    font-weight: 700;
+    font-size: em(20px);
+    padding-top: em(50px);
+    padding-bottom: em(50px);
+    margin-bottom: 0;
+  }
+}
+#page-student-checkout {
+  .container-content {
+    .grid-content p {
+      padding-top: em(5px);
+      padding-bottom: em(5px);
+      color: $blue-dark;
+    }
+  }
+}

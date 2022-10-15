@@ -1,0 +1,73 @@
+// ==========================================================================
+// Global Config
+// ==========================================================================
+
+// Font Stacks
+
+$font-url--google        : 'http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
+$font-family--primary    : 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family--secondary  : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$A-Reg 									 : "Alice-Regular";
+$M-Reg 									 : "Montserrat-Regular";
+$M-Bold 								 : "Montserrat-Bold";
+$ML-Reg 								 : "Montserrat-Light-Regular";
+
+
+// Font Weights
+
+$font-weight--thin       : 100;
+$font-weight--light      : 300;
+$font-weight--medium     : 400;
+$font-weight--bold       : 700;
+$font-weight--ultra-bold : 900;
+
+// Descriptive Base Colors
+
+$white : #fff;
+$black : #0b0b0b;
+$gray  : #797e83;
+
+$green-light  	: #99CC66;
+$green 					: #66CC33;
+$yellow	        : #FFFF33;
+$blue-dark      : #333399;
+$blue-light     : #99CCCC;
+$teal 					: #66CC99;
+$orange	        : #FF9933;
+$red 						: #FF3333;
+$purple 				: #663399;
+$purple-opacity : rgba(102,51,153,0.5);
+
+// Text
+
+$base__font-size : 16px;
+$base__line      : 24px;
+$letter-space    : 1px;
+
+// Border radius
+
+$br--default    : .4em;
+$br--round      : 50%;
+
+// Transitions
+
+$trns-duration  : .3s;
+
+// Path to Assets
+
+$path--rel      : "../img";
+
+// Grid
+
+$g-col-width    : 65px;
+$g-gutter-width : 20px;
+$g-col-count    : 12;
+$g-cont-max-w   : 1050px;
+
+// Breakpoints
+
+$bp-xsmall		: 400px;
+$bp-small			: 640px;
+$bp-medium		: 768px;
+$bp-large			: 992px;
+$bp-xlarge		: 1200px;

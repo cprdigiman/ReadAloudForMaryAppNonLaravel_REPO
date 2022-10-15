@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+
+<button class="addschool">Add School</button>
+<p>
+<button class="getclasses">Get Classes</button>
+<p>
+<button class="getproducts">Get Products</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+
+
+
+		$('.addschool').click(function(){
+			var data={
+				name: 'Marc Test2',
+				login: 'marcd@me.com2',
+				password: 'xyzpdq2'
+			};
+			$.ajax({
+				type:'POST',
+      			url: "/schools/add",
+      			data: data,
+      			dataType:'json'
+    		}).done(function(response) {
+    			console.log(response);
+    		});
+		});
+
+		$('.getclasses').click(function(){
+			var data={
+				school_id:1
+			};
+			$.ajax({
+				type:'POST',
+      			url: "/classes",
+      			data: data,
+      			dataType:'json'
+    		}).done(function(response) {
+    			console.log(response);
+    		});
+		});
+
+		$('.getproducts').click(function(){
+			$.ajax({
+				type:'POST',
+      			url: "/items",
+      			dataType:'json'
+    		}).done(function(response) {
+    			console.log(response);
+    		});
+		});
+
+
+
+	});
+</script>
+</body>
+</html>

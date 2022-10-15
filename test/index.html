@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Mailto Link Tester</title>
+	<style>
+		div {
+			margin-top: 50px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Mailto: Link Tester</h1>
+
+<div>
+	<a href="mailto:marc@cprdigital.com">Click me to create an email</a>
+</div>
+
+<div>
+	<span class="fudge">Click me to create an email with javascript</span>
+</div>
+
+
+
+<script>
+	$(document).ready(function() {
+
+
+		$('fudge').click(function() {
+
+			window.location.href='mailto:marctest@cprdigital.com';
+		});
+
+
+
+	});
+</script>
+</body>
+</html>

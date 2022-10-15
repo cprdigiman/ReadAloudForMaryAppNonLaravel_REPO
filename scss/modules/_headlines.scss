@@ -1,0 +1,84 @@
+// ==========================================================================
+// Headlines
+// ==========================================================================
+
+.headline {
+
+	&-primary {
+		@extend %hdln-prim;
+		margin-bottom: em(70px, 42px);
+
+		@include m(grouped) {
+			@extend %hdln-prim;
+			margin-bottom: 0;
+		}
+	}
+
+ 	&-secondary {
+		@extend %hdln-sec;
+		margin-bottom: em(22px, 24px);
+
+		@include m(grouped) {
+			@extend %hdln-sec;
+			margin-top: em(10px, 24px);
+	 		margin-bottom: em(54px, 24px);
+		}
+	}
+
+}
+.inner-heading {
+	color: $purple;
+	font-size: em(35px);
+	text-transform: none;
+	margin-top: em(10px);
+	margin-bottom: em(10px);
+	font-family: $A-Reg;
+	@media (max-width: $bp-xlarge) {
+		font-size: em(16px) !important;
+	}
+}
+#page-student-store,
+#page-student-favorites,
+#page-student-checkout {
+	.inner-heading {
+		color: $purple;
+		font-size: em(40px);
+		text-transform: none;
+		margin-top: em(20px);
+		margin-bottom: em(20px);
+		margin-left: em(200px);
+		font-family: $A-Reg;
+		@media (max-width: $bp-xlarge) {
+			font-size: em(24px) !important;
+		}
+		@media (max-width: $bp-large) {
+			font-size: em(20px) !important;
+		}
+		@media (max-width: $bp-medium) {
+			font-size: em(16px) !important;
+		}
+		@media (max-width: $bp-small) {
+			margin-left: em(100px);
+		}
+	}
+}
+#page-student-checkout {
+	.checkout-header {
+		background-color: $purple;
+		color: white;
+		font-family: $M-Reg;
+	}
+}
+.school-h2 {
+	font-size: em(30px) !important;
+	max-width: 75%;
+	@media (max-width: $bp-xlarge) {
+		font-size: em(24px) !important;
+	}
+	@media (max-width: $bp-large) {
+		font-size: em(20px) !important;
+	}
+	@media (max-width: $bp-medium) {
+		font-size: em(16px) !important;
+	}
+}

@@ -1,0 +1,20 @@
+// ==========================================================================
+// Placeholders
+// ==========================================================================
+
+// Panel
+
+%panel-default {
+  padding-top: em(30px);
+  @include mq(med) {
+    padding-bottom: em(20px);
+  }
+}
+
+%panel-padding {
+  padding-top: em(34px);
+  @include mq(med) {
+    padding-top: em(80px);
+    padding-bottom: em(34px);
+  }
+}

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body id="page-login"class="bg-dots">
+    <header>
+      <div>
+        <img class="siteLogo" src="img/logo.png">
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <!--<div class="students">
+          <button class="bg-red studentsignin">Student Login</button>
+        </div>-->
+        <form id="login">
+          <div class="form-top">
+            <div class="content-center">
+              <h2>Welcome!</h2>
+              <p class="form-helper"><a>New Username</a></p>
+              <div class="form-input-group d-flex flex-row">
+                <label for="school_username">School Username</label>
+                <input id="school_username" class="cprInput" type="text" name="school_username" placeholder="SCHOOL USERNAME">
+                <i class="fas fa-user form-icon-right"></i>
+              </div>
+              <p class="form-helper"><a>Forgot Your Password?</a></p>
+              <div class="form-input-group d-flex flex-row">
+                <label for="school_password">School Password</label>
+                <input id="school_password" class="cprInput" type="text" name="school_password" placeholder="SCHOOL PASSWORD">
+                <i class="fas fa-key form-icon-right"></i>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div>
+          <div class="form-bottom">
+            <div class="content-center">
+              <div class="d-flex flex-row align-item-center">
+                <!--<label class="fItem2" for="school_password">Keep Me Signed In</label>
+                <input id="retain_login" class="fItem1" type="checkbox" name="retain_login">-->
+                <input id="submit_login" style="width:150px;margin:auto" class="bg-red" type="submit" name="submit_login" value="Sign In">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+    </footer>
+    <div id="modal">
+      <div class="modalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2>Choose Your Class:</h2>
+        <div class="school-list">
+        </div>
+      </div>
+    </div>
+    <style>
+      .error {
+        margin-top: 20px;
+        color: white;
+        background: #ff3333;
+      }
+      .students {
+        padding:50px;
+        background:white;
+        border:solid 1px #797e83;
+        text-align:center;
+      }
+      .studentsignin {
+        background-color: #FF3333;
+        color: white;
+        border:none;
+        padding:15px;
+        font-family:"Montserrat-Regular";
+        font-size:16px;
+        font-weight:400;
+      }
+      #modal {
+        display:none;
+      }
+      body.showmodal #modal {
+        display:block;
+      }
+      .saveclass:hover {
+        color:#ff3333;
+        background:white;
+      }
+      .fa-times {
+        color:white;
+        position:absolute;
+        right:30px;
+        top:30px;
+        cursor:pointer;
+      }
+      .fa-times:hover {
+        color:#ff3333;
+      }
+      .text-center {
+        text-align:center;
+      }
+      #modal {
+        position: fixed;
+        z-index: 300;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0,0,255,.5);
+      }
+      .modalbody {
+        max-width:90%;
+        width:90%;
+        margin: auto;
+        background: rgb(184,235,202);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        padding:50px;
+        max-height: 90%;
+        overflow: auto;
+      }
+      .modalbody.avatars .school-list {
+        background:#fafafa;
+      }
+      .modalbody div {
+        margin-top:20px;
+        margin-bottom:20px;
+      }
+      .school-list {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .giclass,
+      .gistudent,
+      .gipass {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 150px;
+        cursor:pointer;
+      }
+      .giclass .timg{
+        width:100px;
+      }
+      .gistudent .timg {
+        height:100px;
+      }
+      .gipass .timg {
+        width:150px;
+      }
+      .ta {
+        text-align:center;
+      }
+      .tname {
+        text-align:center;
+        margin-bottom:0;
+      }
+      .timg {
+        margin-bottom:0;
+      }
+      .form-top {
+        padding-bottom:100px;
+      }
+      .tba {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .tba .gimonth {
+        margin-right: 60px;
+        margin-bottom: 60px;
+        max-width: 150px;
+      }
+      .gipass,
+      .gimonth {
+        border: 5px solid rgb(184,235,202);
+      }
+      .gipass.selected,
+      .gimonth.selected {
+        border: 5px solid white;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+      var attempts=0;
+        function htmlDecode(value) {
+          return $("<textarea/>").html(value).text();
+        }
+
+        function htmlEncode(value) {
+          return $('<textarea/>').text(value).html();
+        }
+        $(document).ready(function() {
+
+          var needsPassword=false;
+          $('#submit_login').click(function(e) {
+            e.preventDefault();
+            var data={
+              login: $('#school_username').val(),
+              password: $('#school_password').val()
+            };
+            $.ajax({
+              type:'POST',
+                  url: "/login",
+                  data: data,
+                  dataType:'json'
+              }).done(function(response) {
+                console.log(response);
+                //is it a school or a class?
+                if(typeof(response.school)!='undefined') {
+                  sessionStorage.setItem('login',$('#school_username').val());
+                  sessionStorage.setItem('password',$('#school_password').val());
+                  sessionStorage.setItem('schoolname',response.school[0].name);
+                  sessionStorage.setItem('schoolid',response.school[0].id);
+                  sessionStorage.setItem('schoolstatus',response.school[0].status);
+                  sessionStorage.setItem('role','PTA');
+                  window.location.href="school.html";
+                } else {
+                  if(typeof(response.class)!='undefined'){
+                    sessionStorage.setItem('login',$('#school_username').val());
+                    sessionStorage.setItem('password',$('#school_password').val());
+                    sessionStorage.setItem('classname',htmlDecode(response.class[0].name));
+                    sessionStorage.setItem('schoolname',htmlDecode(response.class[0].school_name));
+                    sessionStorage.setItem('classid',response.class[0].id);
+                    sessionStorage.setItem('grade',response.class[0].grade);
+                    sessionStorage.setItem('schoolid',response.class[0].school_id);
+                    sessionStorage.setItem('schoolstatus',response.class[0].status);
+                    sessionStorage.setItem('role','teacher');
+                    window.location.href="class.html";
+                  } else {
+                    //it must be a student login
+                    sessionStorage.setItem('xschoolname',response.studentschool[0].name);
+                    sessionStorage.setItem('xschoolid',response.studentschool[0].id);
+                    sessionStorage.setItem('schoolstatus',response.studentschool[0].status);
+                    sessionStorage.setItem('donation_link',response.studentschool[0].donation_link);
+                    sessionStorage.setItem('prize_store',response.studentschool[0].prize_store)
+                    var data={
+                      school_id:response.studentschool[0].id
+                    };
+                    $.ajax({
+                      type:'POST',
+                      url:'/classes',
+                      data:data,
+                      dataType:'json'
+                    }).done(function(response) {
+                      console.log(response);
+                      $.each(response.classes,function(k,v){
+                          var myclass='<div class="giclass" data-classid="'+v.id+'" data-classname="'+v.name+'" data-grade="'+v.grade+'"><div class="ti"><div class="ta"><img class="timg" src="/img/grade-icons/'+v.grade+'.png"></div></div><p class="tname">'+v.name+'</p></div>';
+                          $('.school-list').append(myclass);
+                        });
+                    });
+                    $('body').addClass('showmodal');
+                  }
+                }
+              }).fail(function(response) {
+                console.log('fail:',response);
+                $('.error').text(response.responseJSON.message);
+              });
+          });
+
+
+          $('body').on('click','.giclass',function(){
+            sessionStorage.setItem('xclassid',$(this).data('classid'));
+            sessionStorage.setItem('xclassname',$(this).data('classname'));
+            sessionStorage.setItem('grade',$(this).data('grade'));
+            var data={
+              class_id:$(this).data('classid')
+            }
+            $.ajax({
+              type:'POST',
+              url:'/students',
+              data:data,
+              dataType:'json'
+            }).done(function(response) {
+              $('.school-list').empty();
+              $('.modalbody h2').text('Select your name:');
+              $('.modalbody').addClass('avatars');
+              $.each(response.students,function(k,v) {
+                var student='<div class="gistudent" data-homepoints="'+v.home_points+'" data-schoolpoints="'+v.school_points+'" data-donationpoints="'+v.donation_points+'" data-vid="'+v.vid+'" data-fname="'+v.fname+'" data-icon="'+v.icon+'" data-lname="'+v.lname+'" data-studentid="'+v.id+'" data-bd="'+v.birthday+'" data-studentname="'+v.fname+' '+v.lname+'.'+'"><div class="ti"><div class="ta"><img class="timg" src="/img/student-icons/'+v.icon+'.png"></div></div><p class="tname">'+v.fname+' '+v.lname+'.'+'</p></div>';
+                $('.school-list').append(student);
+              });
+            });
+          });
+
+
+          $('body').on('click','.gipass',function(){
+            var pass=$(this).data('xid');
+            var newpass=pass;
+            if(needsPassword==true) {
+              pass='';
+            }
+            var passtest=sessionStorage.getItem('studentvid');
+
+            var month=$('.gimonth.selected').data('bd');
+            var monthtest=sessionStorage.getItem('birthday');
+            $('.gipass.selected').removeClass('selected');
+            $(this).addClass('selected');
+            attempts++;
+            console.log(pass,passtest,month,monthtest);
+            if(pass==passtest && month==monthtest) {
+              window.location.href='student.html';
+            } else {
+              if(needsPassword==true) {
+                //update the kid's password
+                var data={
+                  passicon: newpass,
+                  studentid: sessionStorage.getItem('studentid')
+                }
+                console.log('sending new pw');
+                $.ajax({
+                  type:'POST',
+                  url:'/student/password',
+                  data:data,
+                  dataType:'json'
+                }).done(function(response) {
+                  console.log('new pw sent');
+                  sessionStorage.setItem('studentvid',newpass); 
+                  console.log('set student password');
+                });
+              } else {
+                window.location.href='student.html';
+              }
+              if(attempts>4 && needsPassword==false) {
+                sessionStorage.clear();
+                window.location.href='index.html';
+              }
+            }
+          });
+
+          $('body').on('click','.gimonth',function() {
+            var month=$(this).data('bd');
+            var monthtest=sessionStorage.getItem('birthday');
+            var pass=$('.gipass.selected').data('xid');
+            var passtest=sessionStorage.getItem('studentvid');
+            $('.gimonth.selected').removeClass('selected');
+            $(this).addClass('selected');
+            attempts++;
+            console.log(pass,passtest,month,monthtest);
+            if(pass==passtest && month==monthtest) {
+              window.location.href='student.html';
+            } else {
+              if(attempts>4) {
+                sessionStorage.clear();
+                window.location.href='index.html';
+              }
+            }
+
+          });
+
+
+          $('body').on('click','.gistudent',function(){
+            sessionStorage.setItem('studentid',$(this).data('studentid'));
+            sessionStorage.setItem('studentvid',$(this).data('vid'));
+            sessionStorage.setItem('studentname',$(this).data('studentname'));
+            sessionStorage.setItem('birthday',$(this).data('bd')); 
+            sessionStorage.setItem('fname',$(this).data('fname')); 
+            sessionStorage.setItem('lname',$(this).data('lname')); 
+            sessionStorage.setItem('icon',$(this).data('icon')); 
+            sessionStorage.setItem('homepoints',$(this).data('homepoints')); 
+            sessionStorage.setItem('schoolpoints',$(this).data('schoolpoints')); 
+            sessionStorage.setItem('donationpoints',$(this).data('donationpoints')); 
+            if($(this).data('vid')=='') {
+              $('.modalbody h2').html('<center>Welcome to the Read-a-thon!</center><br>Please select which icon you would like to use as your password:');
+              needsPassword=true;
+            } else {
+              $('.modalbody h2').text('Select your password:');
+            }
+            $('.school-list').empty();
+            $('.modalbody').removeClass('avatars');
+            
+            var i;
+            for (i = 1; i < 10; i++) {
+              var pass='<div class="gipass" data-xid="'+i+'"><div class="ti"><div class="ta"><img class="timg" src="/img/pass-icons/'+i+'.png"></div></div></div>';
+              $('.school-list').append(pass);
+            }
+            $('.modalbody').append('<h2>What month is your birthday?</h2><div class="tb"><div class="tba"></div></div>');
+            for (i=1; i<13; i++) {
+              $('.tba').append('<div class="gimonth" data-bd="'+i+'"><img class="timg" src="/img/month-icons/'+i+'.png"></div>');
+            }
+          });
+
+          $('.closemodal').click(function(){
+            $('body').removeClass('showmodal');
+            $('.school-list').empty();
+            $('.modalbody h2').text('Choose Your Class:');
+            $('.modalbody').removeClass('avatars');
+          });
+
+          $('.studentsignin').click(function(){
+            var data={
+              school_id:'6'
+            };
+            $.ajax({
+              type:'POST',
+              url:'/classes',
+              data:data,
+              dataType:'json'
+            }).done(function(response) {
+              console.log(response);
+              $.each(response.classes,function(k,v){
+                  var myclass='<div class="giclass" data-classid="'+v.id+'" data-classname="'+v.name+'" data-grade="'+v.grade+'"><div class="ti"><div class="ta"><img class="timg" src="/img/grade-icons/'+v.grade+'.png"></div></div><p class="tname">'+v.name+'</p></div>';
+                  $('.school-list').append(myclass);
+                });
+            });
+            $('body').addClass('showmodal');
+          });
+
+
+
+
+        });
+    </script>
+  </body>
+</html>

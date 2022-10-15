@@ -1,0 +1,26 @@
+// ==========================================================================
+// Navbar
+// ==========================================================================
+
+.navbar {
+	position: relative;
+	@include mq(med) {
+		margin-top: em(5px);
+		margin-bottom: 0;
+	}
+	padding: em(25px);
+	h2 {
+		padding-left: em(25px);
+		color: white;
+		@media (max-width: $bp-xlarge) {
+			font-size: em(20px);
+		}
+	}
+}
+
+header {
+		padding: 0;
+}
+.bg-purple {
+	background-color: $purple;
+}

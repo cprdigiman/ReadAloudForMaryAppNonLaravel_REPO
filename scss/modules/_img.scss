@@ -1,0 +1,305 @@
+// ==========================================================================
+// Images
+// ==========================================================================
+
+.img {
+  @include m(wrap) {
+    border: 1px solid palette(grey, x-light);
+    padding: em(12px);
+  }
+  @include m(avatar) {
+    display: block;
+    border-radius: $br--round;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: em(24px);
+  }
+  @include m(hero) {
+    @media (min-width: 769px) {
+      margin-bottom: em(42px);
+    }
+  }
+}
+/*--- Logo ---*/
+.siteLogo {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 10%;
+  height: auto;
+  @media (max-width: $bp-xlarge) {
+    top: em(10px);
+    left: em(10px);
+  }
+}
+.siteLogo-inside {
+  width: 10%;
+  z-index: 9;
+  position: absolute;
+  right: em(50px);
+  top: 50%;
+  transform: translateY(-50%);
+  @media (max-width: $bp-xlarge) {
+    top: em(10px);
+    left: em(10px);
+  }
+}
+.siteLogo-inside2 {
+  width: 10%;
+  z-index: 9;
+  position: absolute;
+  left: em(50px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+/*--- Background Dots---*/
+.bg-dots {
+  background-image: url('../img/bg-dots.png');
+  background-repeat: repeat;
+  background-size: 50px;
+}
+/*--- Teacher Selection ---*/
+.teacher-item {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.teacher-avatar {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.teacher-img {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.teacher-name {
+  text-align: center;
+  font-family: $M-Reg;
+}
+.teacher-grid-item {
+  height: 225px;
+}
+.gutter-20 {
+  margin: 20px;
+}
+/*--- Store Product Page ---*/
+.store-item {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  background-color: $gray;
+  @media (max-width: $bp-xlarge) {
+    width: 25%;
+    min-width: 150px;
+  }
+}
+.store-item-icon {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  color: white;
+  padding: 5px;
+  i {
+    padding: 5px;
+  }
+}
+.store-avatar {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  @media (max-width: $bp-large) {
+    position: relative;
+  }
+}
+.store-img {
+  width: 60%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.store-name {
+  text-align: center;
+  background-color: white;
+}
+.store-grid-item {
+  height: 225px;
+  background-color: white;
+  p {
+    margin-bottom: 0;
+  }
+  @media (max-width: $bp-large) {
+    height: 300px;
+  }
+}
+.grid-content {
+  color: white;
+}
+#page-school-class,
+#page-student-store,
+#page-student-favorites,
+#page-student-checkout {
+  .gutter-20 {
+    margin: 50px;
+  }
+}
+#page-student-favorites,
+#page-student-checkout {
+  .store-name {
+    text-align: center;
+    background-color: unset;
+  }
+  .store-grid-item {
+    position: relative;
+    @media (max-width: $bp-large) {
+      height: 300px;
+    }
+  }
+  .store-item {
+    height: 100%;
+  }
+  .favorite-item-icon {
+    color: white;
+    padding: 5px;
+    i {
+      padding: 5px;
+    }
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    @media (max-width: $bp-xlarge) {
+      width: 50%;
+    }
+    @media (max-width: $bp-medium) {
+      width: 25%;
+    }
+  }
+  .fav-name {
+    margin: em(25px);
+    text-align: center;
+    color: white;
+    @media (max-width: $bp-large) {
+      margin: em(10px);
+    }
+  }
+}
+#page-student-checkout {
+  .favorite-item-icon,
+  .fav-name,
+  .favorite-item-icon i {
+    color: $blue-dark;
+  }
+  .store-footer .favorite-item-icon {
+    margin: em(10px);
+  }
+  .store-footer .store-grid-item {
+    background-color: $yellow;
+  }
+  .store-footer .fav-name {
+    margin: em(10px);
+  }
+  .store-footer p {
+    margin-bottom: 0;
+    padding-top: em(20px);
+    padding-bottom: em(20px);
+  }
+  .fav-name {
+    font-family: $M-Reg;
+  }
+}
+#student-store-modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: $purple-opacity;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  p {
+    margin-bottom: em(10px);
+  }
+  .modal-grid-item {
+    background-color: white;
+    padding: em(10px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height: 50%;
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: em(25px);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .modal-item {
+      width: 100%;
+      height: 100%;
+    }
+    .modal-avatar {
+      width: 40%;
+      margin-top: 10%;
+      margin-bottom: 10%;
+      .modal-img {
+        width: 80%;
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+      }
+    }
+    .modal-item-content {
+      width: 40%;
+    }
+    .modal-qty,
+    .modal-product {
+      color: $orange;
+      font-weight: bold;
+    }
+    .modal-description {
+      color: $purple;
+      font-weight: bold;
+    }
+    .modal-points {
+      color: $green;
+      font-weight: bold;
+    }
+    .modal-product {
+      font-size: em(24px);
+      font-family: $A-Reg;
+    }
+    .modal-points {
+      font-size: em(20px);
+      font-family: $A-Reg;
+    }
+    .modal-description,
+    .modal-qty {
+      font-size: em(16px);
+      font-family: $M-Reg;
+    }
+    .modal-icons {
+      i {
+        padding-left: em(10px);
+        padding-right: em(10px);
+        color: $purple;
+        font-size: em(24px);
+      }
+    }
+  }
+}

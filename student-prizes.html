@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body id="page-student-store" class="bg-dots jsPageStudentStore">
+    <header>
+    </header>
+    <main>
+      <div class="">
+        <div class="bg-purple d-flex justify-flex-end">
+          <p class="cart-text">&nbsp;<!--Cart <i class="fas fa-shopping-cart"></i>--></p>
+          <div class="nav">
+            <p class="nav-item"><a href="student.html" class="activepage">My Dashboard</a></p>
+            <p class="nav-item"><a href="favorites.html" >My Favorites <i style="font-size:15px;" class="fas fa-heart"></i></a></p>
+            <p class="nav-item cartlink"><a href="cart.html" class="">My Cart  <i style="font-size:15px;" class="fas fa-shopping-cart"></i></a></p>
+          </div>
+        </div>
+        <div class="header-green bg-green d-flex justify-between">
+          <img class="siteLogo-inside2" src="img/logo.png">
+          <h2 class="inner-heading">Prize Store</h2>
+          <div class="store-profile">
+            <p class="studentname">Student Name</p>
+            <p class="totalpoints">Total Points</p>
+            <span style="
+                font-size: 14px;
+                color: black;
+                font-family: Lato;
+                text-align: center;
+            "><br><!--Add Reading Points Here--></span>
+          </div>
+        </div>
+        <div class="bg-white">
+          <div class="container-content">
+            <div class="instructions">
+              <h3>It's Time to Spend Your Prize Points!</h3>
+              <ol>
+                <li><p>Select your favorite prizes by clicking on the <img src="img/heart.png"> below each prize you like.</p></li>
+                <li><p>Click on <img src="img/myfaves.png"> at the top of the screen to see your favorites and enter the checkout process.</p></li>
+                <li><p>Click <img src="img/cart.png"> on each item you want to place in your shopping cart. Click twice if you want 2 of the item <img src="img/cart2.png"></p></li>
+                 <li><p>Click on <img src="img/mycart.png"> at the top of the screen to go to the shopping cart and finalize your order.</p></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="bg-dots bg-white">
+          <div class="inner-wrapper">
+            <div id="storewrapper" class="d-flex justify-around flex-row flex-wrap">
+              
+            
+          </div>
+        </div>
+      </div>
+      <div id="student-store-modal">
+        <div class="modal-grid-item gutter-20">
+          <i class="close-modal fas fa-times"></i>
+          <div class="modal-item d-flex justify-evenly flex-row">
+            <div class="modal-avatar">
+              <img class="modal-img" src="img/drawn-people/boy-blue-1.png">
+            </div>
+            <div class="d-flex flex-column justify-center modal-item-content">
+              <p class="modal-name modal-product">Product Name<p>
+              <p class="modal-name modal-points">XX Points<p>
+              <p class="modal-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="modal-name modal-qty">Quantity<p>
+              <div class="d-flex flex-row justify-flex-start modal-icons">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="itemmodal">
+      <div class="modalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <div class="itemwrapper">
+          <table>
+            <tr><td><img class="modalimage" src=""></td><td><h2 class="modalitemname">Product Name</h2><h3 class="modalitempoints">XX Points</h3><p class="modalitemdescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p class="modalitemavail"></p><div class="modalicons"><i class="fas fa-heart addfavorite"></i></div></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="pointsmodal">
+      <div class="modalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2>Update points for <span class="studentname">student</span>:</h2>
+        <div class="pointswrapper">
+          <table>
+            <tr><td class="right">Home Reading Points:</td><td><input type="number" id="homepoints" min="0" max="100" step="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57"><span class="errorMessage homeerror">Cannot be more than 100</span><div class="homepoints"></div></td></tr>
+            <tr><td class="right">Class Reading Points:</td><td><input type="number" id="schoolpoints"><span class="errorMessage schoolerror">Cannot be more than 50</span><div class="schoolpoints"></div></td></tr>
+            <tr><td class="right">Donation Points:</td><td><input type="number" id="donationpoints"><div class="donationpoints donationerror"></div></td></tr>
+          </table>
+          <div class="savepoints"><button class="savepointsbutton">Update Points</button></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+    </footer>
+    <button class="logout">Log Out</button>
+    <style>
+      .instructions h3 {
+        margin-bottom:0;
+      }
+      .instructions p {
+        padding-top:0 !important;
+        padding-bottom:0 !important;
+        margin-bottom:20px;
+        display:inline !important;
+      }
+      .instructions img {
+        display:inline;
+        height:25px;
+        vertical-align: -5px;
+        margin-bottom:0;
+      }
+      ol li {
+        margin-bottom:30px;
+      }
+      .container-content {
+        margin:auto !important;
+        width:100% !important;
+        padding-left:30px;
+        padding-right:30px;
+        padding-bottom:30px;
+      }
+      #page-student-store h2.inner-heading {
+        font-size: 80px;
+        margin: 0;
+        left: 50%;
+        position: relative;
+        transform: translatex(-50%);
+        color: rgb(0,51,153);
+      }
+      .notice {
+        text-align:center;
+      }
+      .store-profile .studentname {
+        text-align:center;
+      }
+      .totalpoints {
+        background: #ff3333;
+        padding: 5px 20px;
+        font-size: 16px;
+        font-family: Lato;
+        font-weight: 500;
+        display: inline-block;
+        text-align: center;
+        border-radius: 20px;
+        margin-top:20px;
+        cursor:pointer;
+        text-align: center;
+        left: 50%;
+        position: relative;
+        transform: translatex(-50%);
+      }
+      .logout {
+        position:absolute;
+        top:0;
+        right:0;
+        background-color:#FF3333;
+        color:white;
+        border:none;
+        padding:10px 30px;
+        border:2px solid #FF3333;
+      }
+      .logout:hover {
+        background:white;
+        color:#ff3333;
+      }
+      #pointsmodal,
+      #itemmodal {
+        position: fixed;
+        z-index: 300;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0,0,255,.5);
+        top:0;
+        left:0;
+      }
+      #pointsmodal input {
+        width:30%;
+        display:inline-block;
+        border:3px solid white;
+      }
+      #pointsmodal input.invalid {
+        border:3px solid #ff3333;
+      }
+      #pointsmodal .homepoints,
+      #pointsmodal #donationpoints,
+      #pointsmodal #schoolpoints {
+        display:none;
+      }
+      #pointsmodal {
+        display:none;
+      }
+      body.showpointsmodal #pointsmodal {
+        display:block;
+      }
+      .modalbody {
+        max-width: 50%;
+        margin: auto;
+        background: #99CC66;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        padding:50px;
+      }
+      .modalbody div {
+        margin-top:20px;
+        margin-bottom:20px;
+      }
+      .fa-times {
+        color:white;
+        position:absolute;
+        right:30px;
+        top:30px;
+        cursor:pointer;
+      }
+      .fa-times:hover {
+        color:#ff3333;
+      }
+      .savepoints {
+        margin-top:40px !important;
+        text-align: center;
+      }
+      .savepointsbutton {
+        background:#ff3333;
+        color:white;
+        padding:10px 15px;
+        border:none;
+      }
+      .donationpoints,
+      .homepoints,
+      .schoolpoints {
+        padding-left:15px;
+      }
+      .right {
+        text-align:right;
+      }
+      table {
+        width:100%;
+      }
+      td.right {
+        width: 50%;
+        text-align: right;
+        padding-right: 10%;
+      }
+      .inner-wrapper {
+        padding:0;
+      }
+      .errorMessage {
+        margin-left:20px;
+        visibility: hidden;
+        color:#ff3333;
+      }
+      .errorMessage.active {
+        visibility: visible;
+      }
+      .store-avatar {
+        width:250px; 
+      }
+      .store-img {
+        width:200px !important;
+      }
+      .store-item {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,20%);
+      }
+      .store-grid-item {
+        height:400px;
+        width:300px;
+        background:#99cc66;
+        position:relative;
+      }
+      .store-name {
+        background:#99cc66;
+        font-weight:bold;
+      }
+      .item-info {
+        position: absolute;
+        bottom: 20px;
+        /* left: 50%; */
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .store-name:first-child {
+        margin-bottom:10px;
+      }
+      .fas.fa-heart {
+        font-size:30px;
+        cursor:pointer;
+      }
+      .fas.fa-heart:hover {
+        color: rgba(255,200,200,1);;
+      }
+      .fas.fa-heart.active {
+        color:red;
+      }
+      .store-item-icon {
+        right:auto;
+        left: 50%;
+        transform: translatex(-50%);
+        bottom:-50px;
+      }
+      #student-store-modal {
+        display:none;
+      }
+      #itemmodal {
+        display:none;
+      }
+      body.showitemmodal #itemmodal {
+        display:block;
+      }
+      #itemmodal .modalbody {
+        width:70%;
+        max-width:70%;
+        background:white;
+        max-height:90%;
+      }
+      .modalimage {
+        padding-right:50px;
+        max-height:70vh;
+      }
+      #itemmodal td {
+        width:50%;
+        vertical-align:top;
+      }
+      h2.modalitemname {
+        color:#f68b1f;
+        margin-top:0;
+        margin-bottom:20px;
+        font-size:40px;
+        line-height:1.2em;
+      }
+      h3.modalitempoints {
+        color:#99cc66;
+        margin-top:0;
+        margin-bottom:30px;
+        font-size:35px;
+      }
+      p.modalitemdescription {
+        color:#2f3594;
+        font-weight:bold;
+        font-size:30px;
+        line-height:1.3em;
+      }
+      p.modalitemavail {
+        color:#f68b1f;
+        font-size:30px;
+        font-weight:bold;
+      }
+      #itemmodal .closemodal {
+        color:#99CC66;
+      }
+      #itemmodal .closemodal:hover {
+        color:#ff3333;
+      }
+      .nav {
+        position: relative;
+        right: 200px;
+      }
+      p.nav-item {
+        display: inline-block;
+        margin: 10px 20px auto 20px;
+        color: white;
+      }
+      p.nav-item a {
+        color:white;
+      }
+      p.nav-item a.activepage {
+        text-decoration: underline;
+      }
+
+      .cart-link,
+      .addtocart {
+        display:none;
+      }
+      body.nopoints #pointsmodal .homepoints,
+      body.nopoints #pointsmodal .donationpoints,
+      body.nopoints #pointsmodal .schoolpoints {
+        display:inline-block;
+      }
+      body.nopoints #pointsmodal #homepoints,
+      body.nopoints #pointsmodal #donationpoints,
+      body.nopoints #pointsmodal #schoolpoints {
+        display:none;
+      }
+      p.nav-item.cartlink,
+      .addtocart,
+      .instructions {
+        display:none;
+      }
+      body.showcart p.nav-item.cartlink,
+      body.showcart .addtocart,
+      body.showcart .instructions {
+        display:inline-block;
+      }
+      body.nopoints .savepointsbutton {
+        display:none;
+      }
+      .store-grid-item[data-avail="0"] {
+        display: none;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+      function numbersOnly(e) {
+        return e.charCode >= 48 && e.charCode <= 57;
+      }
+      function htmlDecode(value) {
+          return $("<textarea/>").html(value).text();
+        }
+       $(document).ready(function(){
+        if(!sessionStorage.getItem('studentid')) {
+          //not logged in or a problem exists
+          sessionStorage.clear();
+          window.location.href='/index.html';
+          return false;
+        }
+        if(sessionStorage.getItem('schoolstatus')=='Pending' || sessionStorage.getItem('schoolstatus')=='Fulfillment' || sessionStorage.getItem('schoolstatus')=='Completed') {
+          $('body').addClass('nopoints');
+        }
+        if(sessionStorage.getItem('schoolstatus')=='Ordering') {
+          $('body').addClass('showcart');
+        }
+        //get student data
+        var data={
+          studentid:sessionStorage.getItem('studentid')
+        };
+        $.ajax({
+              type:'POST',
+              url:'/student',
+              data:data,
+              dataType:'json'
+            }).done(function(response) {
+              console.log(response);
+              sessionStorage.setItem('fname',response.student[0].fname);
+              sessionStorage.setItem('lname',response.student[0].lname);
+              sessionStorage.setItem('icon',response.student[0].icon);
+              sessionStorage.setItem('homepoints',response.student[0].home_points);
+              sessionStorage.setItem('schoolpoints',response.student[0].school_points);
+              sessionStorage.setItem('donationpoints',response.student[0].donation_points);
+              var temppoints=parseInt(response.student[0].home_points);
+              if(temppoints>150) temppoints=150;
+              var totalpoints=temppoints+parseInt(response.student[0].school_points)+parseInt(response.student[0].donation_points);
+              sessionStorage.setItem('total_spendable_points',totalpoints);
+              $('.totalpoints').text(totalpoints.toString()+' Points');
+              if(response.student[0].order_complete=="1") {
+                window.location.href="cart.html";
+              }
+
+
+              
+            });
+
+        //get store data
+        $.ajax({
+          type:'POST',
+          url:'/items',
+          dataType:'json'
+        }).done(function(r) {
+          console.log(r);
+          $.each(r.items,function(k,v) {
+            var item='<div class="store-grid-item gutter-20" data-avail="'+v.avail+'" data-itemid="'+v.id+'"><div class="store-item"><div class="store-avatar"><img class="store-img" src="img/items/'+v.id+'.jpg"></div><div class="d-flex flex-row justify-flex-end store-item-icon"><i class="fas fa-heart addfavorite"></i><!--<i class="fas fa-shopping-cart"></i>--></div></div><div class="item-info"><p class="store-name">'+v.name+'</p><p class="store-name">'+v.points+' Points</p></div></div>';
+            
+              $('#storewrapper').append(item);
+           
+          });
+          //now get favorites for this student and apply to the heart icons
+              var data={
+                studentid:sessionStorage.getItem('studentid')
+                };
+              $.ajax({
+                type:'POST',
+                data:data,
+                url:'/favorites',
+                dataType:'json'
+              }).done(function(r2) {
+                console.log(r2);
+                $.each(r2.favorites,function(k,v){
+                  
+                  $('.store-grid-item[data-itemid="'+v.item_id+'"] .addfavorite').addClass('active');
+                });
+              });
+        });
+
+        $('body').on('click','.store-img',function(){
+          $('.modalimage').attr('src',$(this).attr('src'));
+          var itemid=$(this).parents('.store-grid-item').data('itemid');
+          var fave=$(this).parents('.store-grid-item').find('.addfavorite.active');
+          if(fave.length>0) {
+            $('.modalicons .addfavorite').addClass('active');
+          } else {
+            $('.modalicons .addfavorite').removeClass('active');
+          }
+          var data={
+            itemid:itemid
+          }
+          $.ajax({
+            type:'POST',
+            url: '/getitem',
+            data:data,
+            dataType:'json'
+          }).done(function(r){
+            console.log(r);
+            $('.modalitemname').html(r.item[0].name);
+            $('.modalitempoints').text(r.item[0].points +' Points');
+            $('.modalitemdescription').html(r.item[0].description);
+            $('.modalitemavail').text(r.item[0].avail + ' Available');
+            $('.modalicons .addfavorite').data('itemid',itemid);
+          });
+          $('body').addClass('showitemmodal');
+        });
+
+        $('body').on('click','.addfavorite.active',function(){
+          var that=this;
+          var itemid=$(this).parents('.store-grid-item').data('itemid');
+          if(typeof(itemid)=='undefined') {
+            itemid=$(this).data('itemid');
+          }
+          var data={
+            itemid:itemid,
+            studentid:sessionStorage.getItem('studentid')
+          }
+          $.ajax({
+            type:'POST',
+            data:data,
+            url:'/favorites/delete',
+            dataType:'json'
+          }).done(function(r){
+            console.log(r);
+            $(that).removeClass('active');
+            $('.store-grid-item[data-itemid="'+itemid+'"]').removeClass('fave');
+            $('.store-grid-item[data-itemid="'+itemid+'"]').find('.addfavorite').removeClass('active');
+          });
+        });
+
+        $('body').on('click','.addfavorite',function(){
+          if($(this).hasClass('active')) {
+            return false;
+          }
+          var that=this;
+          var itemid=$(this).parents('.store-grid-item').data('itemid');
+          if(typeof(itemid)=='undefined') {
+            itemid=$(this).data('itemid');
+          }
+          var data={
+            itemid:itemid,
+            studentid:sessionStorage.getItem('studentid')
+          }
+          $.ajax({
+            type:'POST',
+            url:'/favorites/add',
+            data:data,
+            dataType:'json'
+          }).done(function(r){
+            console.log(r);
+            $(that).addClass('active');
+            $('.store-grid-item[data-itemid="'+itemid+'"]').addClass('fave');
+            $('.store-grid-item[data-itemid="'+itemid+'"]').find('.addfavorite').addClass('active');
+          });
+        });
+
+
+
+        $('.totalpoints').click(function() {
+          /*$('.homepoints').text(sessionStorage.getItem('homepoints'));
+          $('#homepoints').val(parseInt(sessionStorage.getItem('homepoints')));
+          $('.schoolpoints').text(sessionStorage.getItem('schoolpoints'));
+          $('#schoolpoints').val(parseInt(sessionStorage.getItem('schoolpoints')));
+          $('.donationpoints').text(sessionStorage.getItem('donationpoints'));
+          $('#donationpoints').val(parseInt(sessionStorage.getItem('donationpoints')));
+          $('#pointsmodal .studentname').text($(this).data('studentname'));
+          $('.savepointsbutton').data('studentid',$(this).data('studentid'));
+          $('body').addClass('showpointsmodal');*/
+        });
+
+        $('.closemodal').click(function(){
+          $('body').removeClass('showmodal');
+          $('body').removeClass('showpointsmodal');
+          $('body').removeClass('showitemmodal');
+        });
+
+        $('.savepointsbutton').click(function(){
+          if($('#homepoints').val()>100) {
+            $('.homeerror').addClass('active');
+            $('#homepoints').addClass('invalid');
+          } else {
+            var data={
+              student_id:sessionStorage.getItem('studentid'),
+              homepoints:$('#homepoints').val(),
+              schoolpoints:sessionStorage.getItem('schoolpoints'),
+              donationpoints:sessionStorage.getItem('donationpoints')
+            }
+            $.ajax({
+              type:'POST',
+              url:'/students/updatepoints',
+              data:data,
+              dataType:'json'
+            }).done(function(response) {
+              console.log(response);
+              var newtotal=parseInt(response.home_points)+parseInt(response.school_points)+parseInt(response.donation_points);
+              sessionStorage.setItem('homepoints',response.home_points);
+              sessionStorage.setItem('schoolpoints',response.school_points);
+              sessionStorage.setItem('donationpoints',response.donation_points);
+              $('.totalpoints').text(newtotal.toString()+' Points');
+              $('body').removeClass('showmodal');
+              $('body').removeClass('showpointsmodal');
+            });
+          }
+        });
+
+        $('.logout').click(function() {
+          sessionStorage.clear();
+          window.location.href='index.html';
+        });
+
+      });
+    </script>
+  </body>
+</html>

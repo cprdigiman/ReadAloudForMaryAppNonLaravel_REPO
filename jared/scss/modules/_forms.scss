@@ -1,0 +1,50 @@
+// ==========================================================================
+// Form Elements
+// ==========================================================================
+
+/*--- Form Helpers ---*/
+.form-helper {
+  text-align: right;
+  color: white;
+  margin-bottom: 0;
+  margin-top: em(20px);
+}
+/*--- Form Colors ---*/
+.form-top {
+  background-color: $green-light;
+  padding: 2.5%;
+  position: relative;
+}
+.form-bottom {
+  background-color: white;
+  padding: 2.5%;
+  position: relative;
+  border: solid 1px $gray;
+  .content-center {
+    margin-top: em(25px);
+    margin-bottom: em(25px);
+  }
+}
+/*--- Login Form Icons ---*/
+.form-input-group i {
+  color: $green;
+}
+.form-icon-right {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+/*--- Form Labels ---*/
+.form-input-group label {
+  display: none;
+}
+/*--- Form Inputs ---*/
+.form-input-group {
+  background-color: white;
+  border: solid 1px $gray;
+  position: relative;
+}
+.cprInput {
+  width: 90%;
+}

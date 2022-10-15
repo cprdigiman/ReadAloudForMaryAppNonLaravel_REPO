@@ -1,0 +1,36 @@
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+[class^="btn--"] {
+  @extend %center-align;
+  @extend %btn;
+  margin-bottom: em(20px, 14px);
+  @include mq(sm) {
+    width: 100%;
+  }
+  @include mq(med) {
+    width: auto;
+    display: inline-block;
+    @include doubly(20px);
+  }
+}
+
+input[type="submit"] {
+  background-color: $red;
+  color: white;
+}
+.store-back-button {
+  background-color: $red;
+  padding: 20px;
+  color: white;
+  text-transform: uppercase;
+  margin-top: em(50px);
+  margin-bottom: em(50px);
+}
+#page-student-checkout {
+  .store-back-button {
+    margin-top: em(5px);
+    margin-bottom: em(5px);
+  }
+}

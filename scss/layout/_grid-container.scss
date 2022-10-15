@@ -1,0 +1,38 @@
+// ==========================================================================
+// Grid Container
+// ==========================================================================
+
+/*--- Containers ---*/
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+.container-wide {
+  position: absolute;
+  top: em(50px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+.container-narrow {
+  position: absolute;
+  top: em(50px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  max-width: 1400px;
+}
+.inner-wrapper {
+  padding: 5%;
+}
+.header-green {
+  position: relative;
+}
+.container-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}

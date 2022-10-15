@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body id="page-school-staff" class="bg-dots">
+    <header>
+    </header>
+    <main>
+      <div class="container-wide">
+        <div class="bg-purple navbar d-flex justify-center">
+          <h2 class="school-h2"><span class="schoolname">Elementary Name</span></h2><button class="yellow schoolstats">School Statistics</button>
+          <img class="siteLogo-inside" src="img/logo.png">
+        </div>
+        <div class="bg-green">
+          <div class="inner-wrapper">
+            <div class="d-flex justify-around flex-row flex-wrap classesgrid"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+    </footer>
+    <div id="modal">
+
+
+
+      <div class="donationsbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2>Add Donation by Read-A-Thon ID</h2>
+        <div>
+           <label>Read-A-Thon Number<br><sup>(in the format of G-CCCC-FFFL)</sup></label>
+            <input type="text" id="readathonid">
+            <p class="errormsg">No student found by this Read-A-Thon Number</p>
+        </div>
+        <div>
+          <label>Donor</label>
+          <input type="text" id="donor"> 
+        </div>
+        <div>
+          <label>Amount</label>
+          <input type="number" min="1" id="amount"> 
+        </div>
+        <div class="text-center">
+          <button class="savedonation bg-red">Save Donation</button>
+        </div>
+      </div>
+
+
+      <div class="modalbody">
+        <span class="fa fa-times fa-2x closemodal"></span>
+        <h2>Add New Class to <span class="schoolname"></span></h2>
+        <div>
+          <label>New Class Name</label>
+          <input type="text" id="newclassname">
+        </div>
+        <div>
+          <label>Teacher Email</label>
+          <input type="text" id="teacheremail"> 
+        </div>
+        <div>
+          <label>Teacher Password</label>
+          <input type="password" id="teacherpassword">
+        </div>
+        <div>
+          <label>Grade Level</label>
+          <select id="newclassgrade">
+            <option value="P">Preschool</option>
+            <option value="K">Kindergarten</option>
+            <option value="1">1st Grade</option>
+            <option value="2">2nd Grade</option>
+            <option value="3">3rd Grade</option>
+            <option value="4">4th Grade</option>
+            <option value="5">5th Grade</option>
+            <option value="6">6th Grade</option>
+            <option value="O">Online</option>
+          </select>
+        </div>
+        <div class="text-center">
+          <button class="saveclass bg-red">Save Class</button>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <button class="logout">Log Out</button>
+    <button class="addclass">Add Class</button>
+    <button class="adddonation">Donations</button>
+
+    <style>
+    .donationsbody {
+      display: none;
+    }
+    body.showmodaldonations #modal,
+    body.showmodaldonations .donationsbody {
+      display: block;
+    }
+    body.showmodaldonations .modalbody {
+      display: none;
+    }
+    .adddonation {
+
+    }
+    .container-wide {
+      width: calc(100% - 300px);
+      
+    }
+    .schoolname {
+      font-size: 60px !important;
+      color: RGB(0,51,153);
+      text-transform: none;
+
+    }
+      button.yellow {
+          background: rgb(255,255,153);
+          color: RGB(0,51,153);
+          position: absolute;
+          left: 50px;
+          top: 50%;
+          transform: translatey(-50%);
+          border: none;
+          padding: 10px 20px;
+          border-radius: 20px;
+          font-family: "Montserrat-Regular";
+      }
+      button.yellow:hover {
+        background: white;
+      }
+      .navbar h2 {
+        padding-left: 0;
+        margin: 0;
+      }
+      .logout {
+        position:absolute;
+        top:0;
+        right:0;
+        background-color:RGB(0,51,153);
+        color:white;
+        border:none;
+        padding:10px 30px;
+        border:2px solid RGB(0,51,153);
+      }
+      .logout:hover {
+        background:white;
+        color:RGB(0,51,153);
+      }
+      #modal {
+        display:none;
+      }
+      body.showmodal #modal {
+        display:block;
+      }
+      .saveclass:hover {
+        color:RGB(0,51,153);
+        background:white;
+      }
+      .fa-times {
+        color:white;
+        position:absolute;
+        right:30px;
+        top:30px;
+        cursor:pointer;
+      }
+      .fa-times:hover {
+        color:RGB(0,51,153);
+      }
+      .text-center {
+        text-align:center;
+      }
+      .bg-red {
+        background-color:RGB(0,51,153);
+        color:white;
+        border:none;
+        padding:10px 30px;
+      }
+      button.addclass,
+      button.adddonation {
+        position: absolute;
+        top: 58px;
+        right: 0;
+        background-color: RGB(0,51,153);
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        border: 2px solid RGB(0,51,153);
+      }
+      button.adddonation {
+        top: 116px;
+      }
+      button.addclass:hover {
+        background:white;
+        color:RGB(0,51,153);
+      }
+      #modal {
+        position: fixed;
+        z-index: 300;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0,0,255,.5);
+      }
+      .modalbody,
+      .donationsbody {
+        max-width: 50%;
+        margin: auto;
+        background: RGB(184,235,202);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        padding:50px;
+      }
+      .modalbody div {
+        margin-top:20px;
+        margin-bottom:20px;
+      }
+      .teacher-grid-item {
+        cursor:pointer;
+      }
+      div.error #readathonid {
+        border: 3px solid #ff0000;
+      }
+      div .errormsg {
+        display: none;
+      }
+      div.error .errormsg {
+        display: block;
+        color: #ff0000;
+      }
+      #amount.error,
+      #readathonid.error {
+        border: 3px solid #ff0000;
+      }
+      .schoolstats {
+        cursor: pointer;
+
+      }
+    </style>
+    <script>
+      $(document).ready(function(){
+        if(!sessionStorage.getItem('schoolname') || !sessionStorage.getItem('role')) {
+          //not logged in or a problem exists
+          sessionStorage.clear();
+          window.location.href='/index.html';
+          return false;
+        }
+        if(sessionStorage.getItem('role')!='PTA') {
+          sessionStorage.clear();
+          window.location.href='/index.html';
+          return false;
+        }
+        $('body').removeClass('loading');
+        $('.schoolname').text(sessionStorage.getItem('schoolname'));
+        var data={
+          school_id:sessionStorage.getItem('schoolid')
+        };
+        $.ajax({
+              type:'POST',
+                  url: "/classes",
+                  data: data,
+                  dataType:'json'
+              }).done(function(response) {
+                console.log(response);
+                $.each(response.classes,function(k,v){
+                  var myclass='<div class="teacher-grid-item gutter-20" data-classid="'+v.id+'" data-classname="'+v.name+'" data-grade="'+v.grade+'"><div class="teacher-item"><div class="teacher-avatar border-50"><img class="teacher-img" src="/img/grade-icons/'+v.grade+'.png"></div></div><p class="teacher-name">'+v.name+'<p></div>';
+                  $('.classesgrid').append(myclass);
+                });
+              });
+
+        $('.addclass').click(function() {
+          $('body').addClass('showmodal');
+        });
+        $('.closemodal').click(function(){
+          $('body').removeClass('showmodal showmodaldonations');
+        });
+        $('.logout').click(function() {
+          sessionStorage.clear();
+          window.location.href='index.html';
+        });
+        $('body').on('click','.teacher-grid-item',function(){
+            //save class info to storage
+            sessionStorage.setItem('classname',$(this).data('classname'));
+            sessionStorage.setItem('classid',$(this).data('classid'));
+            sessionStorage.setItem('grade',$(this).data('grade'));
+            //go to that class
+            window.location.href="class.html";
+        });
+
+        $('.schoolstats').click(function() {
+          window.location.href='/schoolstats.html';
+        });
+
+
+        $('.adddonation').click(function() {
+          $('body').addClass('showmodaldonations');
+        });
+
+
+        $('.savedonation').click(function() {
+          if($('#donor').val() == '') $('#donor').val('Anonymous');
+          if($('#amount').val() <= 0) {
+            $('#amount').addClass('error');
+            return false;
+          }
+          if($('#readathonid').val().trim() == '') {
+            $('#readathonid').addClass('error');
+            return false;
+          }
+          $.ajax({
+            url:'/donationbyid',
+            data:{readathonid:$('#readathonid').val(),
+                  donor:$('#donor').val(),
+                  amount:$('#amount').val()
+                 },
+            dataType:'json',
+            method:'post'
+          }).done(function(response) {
+            if(response.message=='success') {
+              $('#readathonid,#donor,#amount').val('');
+            }
+            if(response.message=='unknown') {
+              $('#readathonid').parent('div').addClass('error');
+            }
+          });
+        });
+
+        $('#readathonid').click(function() {
+          $(this).parent('div').removeClass('error');
+          $(this).removeClass('error');
+        });
+        $('#readathonid').keyup(function() {
+          $(this).parent('div').removeClass('error');
+          $(this).removeClass('error');
+        });
+
+
+        $('#amount').click(function() {
+          $(this).removeClass('error');
+        });
+        $('#amount').keyup(function() {
+          $(this).removeClass('error');
+        });
+
+        $('.saveclass').click(function(){
+          var data={
+            school_id:sessionStorage.getItem('schoolid'),
+            name:$('#newclassname').val(),
+            teacheremail:$('#teacheremail').val(),
+            teacherpass:$('#teacherpassword').val(),
+            grade:$('#newclassgrade').val()
+          }
+          $.ajax({
+            type:'POST',
+            url:'/classes/add',
+            data:data,
+            dataType:'json'
+          }).done(function(response) {
+            console.log(response);
+            //add new class to list
+            var myclass='<div class="teacher-grid-item gutter-20" data-classid="'+response.class_id+'" data-classname="'+response.name+'" data-grade="'+response.grade+'"><div class="teacher-item"><div class="teacher-avatar border-50"><img class="teacher-img" src="/img/grade-icons/'+response.grade+'.png"></div></div><p class="teacher-name">'+response.name+'<p></div>';
+            $('.classesgrid').append(myclass);
+            $('#newclassname').val('');
+            $('#teacheremail').val('');
+            $('#teacherpassword').val('');
+            $('#newclassgrade').val(0);
+            $('body').removeClass('showmodal');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
